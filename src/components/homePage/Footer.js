@@ -18,9 +18,10 @@ function Footer() {
           className="z-10 object-cover w-full h-full"
           ref={videoRef}
           src={video}
-          autoPlay
-          loop
-          muted
+          autoPlay="autoplay"
+          playsInLine="playsinline"
+          loop="true"
+          muted="true"
           width="100%"
           height="100%"
           style={{
