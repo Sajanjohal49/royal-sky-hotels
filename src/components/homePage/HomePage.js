@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import myVideo from "../videos/hotelVideo.mp4";
 import VideoText from "./VideoText";
 import cardImage from "../images/bedroom-gc90a1b79f_1920.jpg";
@@ -11,6 +11,10 @@ import AnimationGallery from "./AnimationGallery";
 import Footer from "./Footer";
 
 function HomePage() {
+  const videoRef = useRef(undefined);
+  useEffect(() => {
+    videoRef.current.defaultMuted = true;
+  });
   return (
     <div className="relative">
       <div className="overflow-hidden dark:bg-gray-900 font-montserrat">
@@ -20,9 +24,11 @@ function HomePage() {
               <video
                 className="absolute top-0 object-cover w-full h-[44rem] "
                 src={myVideo}
+                ref={videoRef}
                 autoPlay
                 loop
-                muted></video>
+                muted
+                playsInline></video>
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-300    via-transparent via-50%   to-transparent to-90%"></div>
               <VideoText />
               <BannerFeatures />

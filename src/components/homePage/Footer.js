@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import video from "../videos/motor-boat-23011.mp4";
 import FooterContent from "./FooterContent";
 import Subscribe from "./Subscribe";
 
 function Footer() {
+  const videoRef = useRef(undefined);
+  useEffect(() => {
+    videoRef.current.defaultMuted = true;
+  });
   return (
     <footer className="relative min-h-[890px]  sm:min-h-[780px]">
       <div className="items-center justify-center w-full h-full">
@@ -12,6 +16,7 @@ function Footer() {
 
         <video
           className="z-10 object-cover w-full h-full"
+          ref={videoRef}
           src={video}
           autoPlay
           loop
