@@ -109,14 +109,14 @@ const ContactSection = () => {
                 Send message
               </button>
             </form>
-            <div className="grid justify-center max-w-sm mx-auto dark:text-gray-200 sm:max-w-md lg:max-w-xl">
-              <div className="items-center text-center">
-                <img src={address} className="w-12 h-12 mx-auto" alt="" />
+            <div className="grid justify-center max-w-sm pt-4 mx-auto lg:pt-0 dark:text-gray-200 sm:max-w-md lg:max-w-xl">
+              <div className="items-center text-center ">
+                <img src={address} className="w-12 h-12 mx-auto " alt="" />
                 <h1 className="text-xl font-semibold">Address:</h1>
                 <p className="pt-3 text-sm ">Mississauga,Ontario,Canada</p>
                 <p className="text-sm pt-1.5 ">Postal Code: L4T XXX</p>
               </div>
-              <div className="items-center text-center ">
+              <div className="items-center pt-4 text-center lg:pt-0 ">
                 <img src={phone} className="w-12 h-12 mx-auto " alt="" />
                 <h1 className="text-xl font-semibold">Call us:</h1>
                 <p className="max-w-sm px-4 pt-3 text-sm ">

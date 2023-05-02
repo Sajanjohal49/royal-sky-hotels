@@ -10,7 +10,7 @@ function VideoText(props) {
         <p className="text-2xl font-light leading-loose tracking-wide text-black sm:text-3xl lg:text-5xl lg:py-5">
           Enjoy Your
         </p>
-        <h1 className="text-4xl font-bold tracking-wide sm:pt-2 lg:pt-0 lg:text-6xl text-slate-900">
+        <h1 className="text-4xl font-bold tracking-wide text-stone-950 sm:pt-2 lg:pt-0 lg:text-6xl">
           Dream <span className="font-semibold ">Vacation</span>
         </h1>
         <div className="text-sm font-medium leading-7 md:text-lg pt-7 md:pt-8">

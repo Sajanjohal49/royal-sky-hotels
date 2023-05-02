@@ -8,7 +8,6 @@ import Grid from "./Grid";
 import IconHr from "./IconHr";
 import ContactSection from "./ContactSection";
 import AnimationGallery from "./AnimationGallery";
-import Footer from "./Footer";
 
 function HomePage() {
   const videoRef = useRef(undefined);
@@ -40,7 +39,6 @@ function HomePage() {
 
         <AnimationGallery />
         <ContactSection />
-        <Footer />
       </div>
     </div>
   );

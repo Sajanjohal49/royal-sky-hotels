@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Navbar() {
   const [clicked, setClicked] = useState(true);
   return (
-    <nav className="py-1 bg-white border-gray-200 font-montserrat dark:bg-gray-900 ">
+    <nav className="w-full py-1 bg-white border-gray-200 font-montserrat dark:bg-gray-900">
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
         <a href="/" className="flex items-center">
           <span className="self-center text-2xl lg:text-4xl font-extralight font-signature whitespace-nowrap dark:text-white">
@@ -54,9 +54,9 @@ function Navbar() {
             </li>
             <li>
               <a
-                href="#"
+                href="/gallery"
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                About
+                Gallery
               </a>
             </li>
             <li>
