@@ -8,7 +8,7 @@ function Card({ cardImage, name, location, price }) {
           {" "}
           <a href="#">
             <img
-              className="object-cover w-full h-72 rounded-xl"
+              className="object-cover w-full h-72 rounded-t-xl"
               src={cardImage}
               alt="productimage"
             />
@@ -95,7 +95,7 @@ function Card({ cardImage, name, location, price }) {
             </div>
             <a
               href="#"
-              className="px-2.5 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              className="px-2.5 py-2 text-sm font-medium text-center text-white bg-emerald-600 rounded-lg hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-800">
               Book Now
             </a>
           </div>

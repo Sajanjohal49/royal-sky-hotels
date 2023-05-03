@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Navbar() {
   const [clicked, setClicked] = useState(true);
   return (
-    <nav className="w-full py-1 bg-white border-gray-200 font-montserrat dark:bg-gray-900">
+    <nav className="w-full py-1 bg-white border-b-2 border-gray-100 dark:border-gray-900 font-montserrat dark:bg-gray-900">
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
         <a href="/" className="flex items-center">
           <span className="self-center text-2xl lg:text-4xl font-extralight font-signature whitespace-nowrap dark:text-white">
@@ -12,11 +12,15 @@ function Navbar() {
           </span>
         </a>
         <div className="flex md:order-2">
-          <button
-            type="button"
-            className="px-4 py-2 mr-3 text-sm font-semibold text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Login
-          </button>
+          <a href="/login">
+            {" "}
+            <button
+              type="button"
+              className="px-4 py-2 mr-3 text-sm font-semibold text-center text-white rounded-lg bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:outline-none focus:ring-emerald-300 md:mr-0 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-300">
+              Sign in
+            </button>
+          </a>
+
           <button
             data-collapse-toggle="navbar-cta"
             type="button"
@@ -46,8 +50,8 @@ function Navbar() {
           <ul className="flex flex-col p-4 mt-4 text-base font-semibold border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-gray-900 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                href="/"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-emerald-700 md:p-0 md:dark:hover:text-emerald-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 aria-current="page">
                 Home
               </a>
@@ -55,22 +59,16 @@ function Navbar() {
             <li>
               <a
                 href="/gallery"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-emerald-700 md:p-0 md:dark:hover:text-emerald-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
                 Gallery
               </a>
             </li>
+
             <li>
               <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                Contact
+                href="/allHotels"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-emerald-700 md:p-0 md:dark:hover:text-emerald-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                All Hotels
               </a>
             </li>
           </ul>

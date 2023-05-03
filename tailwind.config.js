@@ -8,7 +8,11 @@ module.exports = {
       montserrat: ["Montserrat", "sans-serif"],
       signature: ["Great Vibes", "cursive"],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        login: "url('/src/components/images/monaco-4563055_1920.jpg')",
+      },
+    },
   },
   plugins: [],
 };
