@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         login: "url('/src/components/images/monaco-4563055_1920.jpg')",
+        luggage: "url('/src/components/images/luggage-933487_1280.jpg')",
       },
     },
   },

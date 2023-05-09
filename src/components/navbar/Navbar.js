@@ -1,74 +1,75 @@
 import React, { useState } from "react";
+import logo1 from "../svg/Rating Circled.png";
 
 function Navbar() {
   const [clicked, setClicked] = useState(true);
   return (
-    <nav className="w-full py-1 bg-white border-b-2 border-gray-100 dark:border-gray-900 font-montserrat dark:bg-gray-900">
-      <div className="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
-        <a href="/" className="flex items-center">
-          <span className="self-center text-2xl lg:text-4xl font-extralight font-signature whitespace-nowrap dark:text-white">
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/" class="flex items-center">
+          <img src={logo1} alt="" className="mr-1 md:mr-3 w-11 h-11 " />
+
+          <span class="self-center text-xl md:text-3xl font-semibold whitespace-nowrap dark:text-white font-montserrat ">
             Royal Sky Hotels
-            {/* royalsky hill hotels */}
           </span>
         </a>
-        <div className="flex md:order-2">
-          <a href="/login">
-            {" "}
-            <button
-              type="button"
-              className="px-4 py-2 mr-3 text-sm font-semibold text-center text-white rounded-lg bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:outline-none focus:ring-emerald-300 md:mr-0 dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-emerald-300">
-              Sign in
-            </button>
-          </a>
-
-          <button
-            data-collapse-toggle="navbar-cta"
-            type="button"
-            className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-cta"
-            onClick={() => setClicked(!clicked)}
-            aria-expanded="false">
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-6 h-6"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                fillRule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clipRule="evenodd"></path>
-            </svg>
-          </button>
-        </div>
+        <button
+          data-collapse-toggle="navbar-default"
+          onClick={() => setClicked(!clicked)}
+          type="button"
+          class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
         <div
-          className={`items-center justify-between ${
-            clicked ? "hidden" : " "
-          } w-full text-lg md:flex md:w-auto md:order-1`}
-          id="navbar-cta">
-          <ul className="flex flex-col p-4 mt-4 text-base font-semibold border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          class={`${clicked ? "hidden" : ""} w-full md:block md:w-auto`}
+          id="navbar-default">
+          <ul class="font-medium flex lg:text-base text-sm flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <a
                 href="/"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-emerald-700 md:p-0 md:dark:hover:text-emerald-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                aria-current="page">
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-600 md:p-0 dark:text-white md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 dark:hover:text-emerald-500 md:dark:hover:bg-transparent">
                 Home
               </a>
             </li>
             <li>
               <a
                 href="/gallery"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-emerald-700 md:p-0 md:dark:hover:text-emerald-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-600 md:p-0 dark:text-white md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 dark:hover:text-emerald-500 md:dark:hover:bg-transparent">
                 Gallery
+              </a>
+            </li>
+            <li>
+              <a
+                href="/allHotels"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-emerald-600 md:p-0 dark:text-white md:dark:hover:text-emerald-500 dark:hover:bg-gray-700 dark:hover:text-emerald-500 md:dark:hover:bg-transparent">
+                All Hotels
               </a>
             </li>
 
             <li>
               <a
-                href="/allHotels"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-emerald-700 md:p-0 md:dark:hover:text-emerald-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                All Hotels
+                href="/login"
+                className="px-3 py-2 mr-4 text-white rounded-lg bg-emerald-600">
+                Sign In
+              </a>
+
+              <a
+                href="/user/register"
+                className="px-3 py-2 text-white rounded-lg bg-emerald-600">
+                Sign Up
               </a>
             </li>
           </ul>
