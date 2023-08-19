@@ -2,13 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import baseURL from "../../apiConfig";
 
 const GetAllFacilites = () => {
   const [facilities, setFacilities] = useState([]);
   const retrieveAllFacilities = async () => {
-    const response = await axios.get(
-      "http://localhost:8080/api/facility/fetch"
-    );
+    const response = await axios.get(`${baseURL}/api/facility/fetch`);
     return response.data;
   };
   useEffect(() => {

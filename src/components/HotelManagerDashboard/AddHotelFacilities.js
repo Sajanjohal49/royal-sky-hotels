@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import baseURL from "../../apiConfig";
 
 const AddHotelFacilities = () => {
   const { hotelId } = useParams();
@@ -14,7 +15,7 @@ const AddHotelFacilities = () => {
 
   const retrieveHotelFacilities = async () => {
     const response = await axios.get(
-      "http://localhost:8080/api/facility/hotel?hotelId=" + hotelId
+      `${baseURL}/api/facility/hotel?hotelId=` + hotelId
     );
     return response.data;
   };
@@ -31,9 +32,7 @@ const AddHotelFacilities = () => {
   }, []);
 
   const retrieveAllFacilities = async () => {
-    const response = await axios.get(
-      "http://localhost:8080/api/facility/fetch"
-    );
+    const response = await axios.get(`${baseURL}/api/facility/fetch`);
     return response.data;
   };
 
@@ -52,7 +51,7 @@ const AddHotelFacilities = () => {
     e.preventDefault();
     let data = { hotelId, facilityId };
 
-    fetch("http://localhost:8080/api/facility/hotel/add", {
+    fetch(`${baseURL}/api/facility/hotel/add`, {
       method: "POST",
       headers: {
         Accept: "application/json",

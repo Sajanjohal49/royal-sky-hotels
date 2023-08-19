@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SlPin } from "react-icons/sl";
+import baseURL from "../../apiConfig";
 
 const GetHotelFacilities = ({ hotel }) => {
   const { hotelId } = useParams();
@@ -18,7 +19,7 @@ const GetHotelFacilities = ({ hotel }) => {
   }, [hotelId]);
   const retrieveFacilitiesByHotelId = async () => {
     const response = await axios.get(
-      "http://localhost:8080/api/facility/hotel?hotelId=" + hotelId
+      `${baseURL}/api/facility/hotel?hotelId=` + hotelId
     );
     return response.data;
   };

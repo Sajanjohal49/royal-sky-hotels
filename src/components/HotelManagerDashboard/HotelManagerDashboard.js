@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import BookingStatus from "../AdminDashboard/ViewAllBookings/BookingStatus";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import baseURL from "../../apiConfig";
 
 const HotelManagerDashboard = () => {
   const navigate = useNavigate();
@@ -18,8 +19,7 @@ const HotelManagerDashboard = () => {
   }, [navigate, hotelManager]);
   const retrieveAllBooking = async () => {
     const response = await axios.get(
-      "http://localhost:8080/api/book/hotel/fetch/bookings?hotelId=" +
-        hotelManager.hotelId
+      `${baseURL}/api/book/hotel/fetch/bookings?hotelId=` + hotelManager.hotelId
     );
     console.log("find customer Name" + response.data);
     return response.data;

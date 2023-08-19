@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import baseURL from "../../apiConfig";
 
 const AddHotelReview = () => {
   const navigate = useNavigate();
@@ -28,10 +29,7 @@ const AddHotelReview = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      const response = axios.post(
-        "http://localhost:8080/api/hotel/review/add",
-        data
-      );
+      const response = axios.post(`${baseURL}/api/hotel/review/add`, data);
 
       console.log(response.data);
       setStar(0);

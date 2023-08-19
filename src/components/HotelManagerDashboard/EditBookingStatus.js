@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import baseURL from "../../apiConfig";
 
 const EditBookingStatus = () => {
   const { bookingId } = useParams();
@@ -34,7 +35,7 @@ const EditBookingStatus = () => {
   const handleUpdate = (id) => {
     const booking = bookings.find((booking) => booking.bookingId === id);
     axios
-      .post(`http://localhost:8080/api/book/hotel/update/status`, {
+      .post(`${baseURL}/api/book/hotel/update/status`, {
         bookingId: booking.id,
         status: booking.status,
         checkIn: booking.checkIn,
@@ -48,7 +49,7 @@ const EditBookingStatus = () => {
   const retrieveBookingDetails = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/book/hotel/fetch/id?bookingId=" + bookingId
+        `${baseURL}/api/book/hotel/fetch/id?bookingId=` + bookingId
       );
       return response.data;
     } catch (error) {

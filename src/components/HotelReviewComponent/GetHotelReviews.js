@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BsFillStarFill } from "react-icons/bs";
+import baseURL from "../../apiConfig";
 
 const GetHotelReviews = (hotel) => {
   const { hotelId } = useParams();
@@ -18,7 +19,7 @@ const GetHotelReviews = (hotel) => {
 
   const retrieveHotelReviews = async () => {
     const response = await axios.get(
-      "http://localhost:8080/api/hotel/review/fetch?hotelId=" + hotelId
+      `${baseURL}/api/hotel/review/fetch?hotelId=` + hotelId
     );
     return response.data;
   };

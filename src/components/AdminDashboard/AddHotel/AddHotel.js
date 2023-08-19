@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import baseURL from "../../../apiConfig";
 
 const AddHotel = () => {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ const AddHotel = () => {
       formDataToSend.append("userId", formData.userId);
 
       const response = await axios.post(
-        "http://localhost:8080/api/hotel/add",
+        `${baseURL}/api/hotel/add`,
         formDataToSend
       );
 
@@ -72,13 +73,11 @@ const AddHotel = () => {
     allLocations();
   }, []);
   const retrieveAllLocations = async () => {
-    const response = await axios.get(
-      "http://localhost:8080/api/location/fetch"
-    );
+    const response = await axios.get(`${baseURL}/api/location/fetch`);
     return response.data;
   };
   const retreiveAllHotelManagers = async () => {
-    const response = await axios.get("http://localhost:8080/api/user/hotel");
+    const response = await axios.get(`${baseURL}/api/user/hotel`);
     return response.data;
   };
   useEffect(() => {

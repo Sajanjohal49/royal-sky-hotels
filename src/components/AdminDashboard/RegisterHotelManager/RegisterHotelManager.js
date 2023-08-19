@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import baseURL from "../../../apiConfig";
 
 const RegisterHotelManager = () => {
   const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ const RegisterHotelManager = () => {
     try {
       // Make the POST request using Axios
       const response = await axios.post(
-        "http://localhost:8080/api/user/register",
+        `${baseURL}/api/user/register`,
         formData
       );
       console.log(formData);

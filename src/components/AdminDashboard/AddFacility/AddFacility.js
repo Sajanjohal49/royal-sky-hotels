@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import baseURL from "../../../apiConfig";
 
 const AddFacility = () => {
   const navigate = useNavigate();
@@ -14,10 +15,7 @@ const AddFacility = () => {
       description,
     };
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/facility/add",
-        data
-      );
+      const response = await axios.post(`${baseURL}/api/facility/add`, data);
 
       setDescription("");
       setName("");

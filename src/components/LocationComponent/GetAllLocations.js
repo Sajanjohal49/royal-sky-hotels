@@ -1,15 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import baseURL from "../../apiConfig";
 
 const GetAllLocations = () => {
   const [locations, setLocations] = useState([]);
   const retrieveAllLocations = async () => {
-    const response = await axios.get(
-      "http://localhost:8080/api/location/fetch"
-    );
+    const response = await axios.get(`${baseURL}/api/location/fetch`);
     return response.data;
   };
+  console.log(baseURL);
   useEffect(() => {
     const getAllLocations = async () => {
       const allLocations = await retrieveAllLocations();

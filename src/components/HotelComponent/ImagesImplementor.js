@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import baseURL from "../../apiConfig";
 
 function ImagesImplementor({ url, className }) {
   const [imageUrl, setImageUrl] = useState(null);
@@ -6,7 +7,7 @@ function ImagesImplementor({ url, className }) {
   const filename = url.substring(url.lastIndexOf("/") + 1);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/hotel/images/${filename}`)
+    fetch(`${baseURL}/api/hotel/images/${filename}`)
       .then((response) => {
         if (response.ok) {
           return response.blob();

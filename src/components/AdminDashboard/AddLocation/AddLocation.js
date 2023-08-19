@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import baseURL from "../../../apiConfig";
 
 function AddLocation() {
   const [city, setCity] = useState("");
@@ -35,10 +36,7 @@ function AddLocation() {
     };
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/location/add",
-        data
-      );
+      const response = await axios.post(`${baseURL}/api/location/add`, data);
 
       console.log("Location data saved successfully:", response.data);
 

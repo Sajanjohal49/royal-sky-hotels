@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import baseURL from "../../apiConfig";
 
 const ReservationForm = () => {
   const { hotelId } = useParams();
@@ -46,7 +47,7 @@ const ReservationForm = () => {
 
       // Send data using Axios
       axios
-        .post("http://localhost:8080/api/book/hotel/", formData)
+        .post(`${baseURL}/api/book/hotel/`, formData)
         .then((response) => {
           console.log(response);
           navigate("/customer/allbookings");

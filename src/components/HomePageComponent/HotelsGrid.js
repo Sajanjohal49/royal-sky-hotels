@@ -5,6 +5,7 @@ import image1 from "../images/ciudad-maderas-MXbM1NrRqtI-unsplash.jpg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import GetAllLocations from "../LocationComponent/GetAllLocations";
+import baseURL from "../../apiConfig";
 
 function HotelsGrid() {
   const [hotels, setHotels] = useState([]);
@@ -32,15 +33,20 @@ function HotelsGrid() {
   }, [locationId]);
 
   const retrieveHotels = async () => {
-    const response = await axios.get("http://localhost:8080/api/hotel/fetch");
+    const response = await axios.get(`${baseURL}/api/hotel/fetch`);
     return response.data;
   };
   const retrieveHotelsByLocation = async () => {
     const response = await axios.get(
-      "http://localhost:8080/api/hotel/location?locationId=" + locationId
+      `${baseURL}/api/hotel/location?locationId=` + locationId
     );
     return response.data;
   };
+  // In your JavaScript file
+  console.log(process.env.REACT_APP_BASE_URL); // This should log the URL
+
+  // Rest of your code...
+
   return (
     <div className="px-2 sm:px-10">
       <div className="grid items-center justify-center grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:px-10">
