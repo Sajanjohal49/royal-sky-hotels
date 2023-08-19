@@ -2,7 +2,7 @@
   "name": "royal-sky-hill-frontend",
   "version": "0.1.0",
   "engines": {
-    "node": "17.3.0"
+    "node": "18.x"
   },
   "private": true,
   "dependencies": {
