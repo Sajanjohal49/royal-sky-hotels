@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ImageWithUrl from "../../HomePageComponent/ImageWithUrl";
 import BookingStatus from "./BookingStatus";
+import baseURL from "../../../apiConfig";
 
 const ViewAllBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -20,9 +21,7 @@ const ViewAllBookings = () => {
   }, []);
 
   const retrieveAllBookings = async () => {
-    const response = await axios.get(
-      "http://localhost:8080/api/book/hotel/fetch/all"
-    );
+    const response = await axios.get(`${baseURL}/api/book/hotel/fetch/all`);
     console.log("Response:", response.data);
     return response.data;
   };

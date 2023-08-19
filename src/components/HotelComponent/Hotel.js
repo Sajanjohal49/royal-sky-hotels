@@ -13,6 +13,7 @@ import GetHotelFacilities from "../FacilityComponent/GetHotelFacilities";
 import GetHotelReviews from "../HotelReviewComponent/GetHotelReviews";
 import Card from "../HomePageComponent/Card";
 import HotelSuggestedCard from "./HotelSuggestedCard";
+import baseURL from "../../apiConfig";
 
 const Hotel = () => {
   const boundaryRef = useRef(null);
@@ -42,13 +43,13 @@ const Hotel = () => {
 
   const retrieveHotel = async () => {
     const response = await axios.get(
-      "http://localhost:8080/api/hotel/id?hotelId=" + hotelId
+      `${baseURL}/api/hotel/id?hotelId=` + hotelId
     );
     return response.data;
   };
   const retrieveHotelsByLocation = async () => {
     const response = await axios.get(
-      "http://localhost:8080/api/hotel/location?locationId=" + locationId
+      `${baseURL}/api/hotel/location?locationId=` + locationId
     );
     return response.data;
   };

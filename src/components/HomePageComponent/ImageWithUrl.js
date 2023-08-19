@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import baseURL from "../../apiConfig";
 
 function ImageWithUrl({ url, hotel }) {
   const [imageUrl, setImageUrl] = useState(null);
@@ -7,7 +8,7 @@ function ImageWithUrl({ url, hotel }) {
   const filename = url.substring(url.lastIndexOf("/") + 1);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/hotel/images/${filename}`)
+    fetch(`${baseURL}/api/hotel/images/${filename}`)
       .then((response) => {
         if (response.ok) {
           return response.blob();
