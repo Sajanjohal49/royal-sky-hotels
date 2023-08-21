@@ -4,6 +4,7 @@ import baseURL from "../../apiConfig";
 
 function ImageWithUrl({ url, hotel }) {
   const [imageUrl, setImageUrl] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const filename = url.substring(url.lastIndexOf("/") + 1);
 
@@ -21,16 +22,23 @@ function ImageWithUrl({ url, hotel }) {
       })
       .catch((error) => {
         console.error("Error fetching image:", error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [filename]);
 
   return (
     <div>
-      <img
-        src={imageUrl}
-        alt={filename}
-        className="object-cover w-full rounded-xl h-72"
-      />
+      {loading ? (
+        <div className="w-full h-72 bg-gray-200 rounded-xl animate-pulse"></div>
+      ) : (
+        <img
+          src={imageUrl}
+          alt={filename}
+          className="object-cover w-full rounded-xl h-72"
+        />
+      )}
     </div>
   );
 }
