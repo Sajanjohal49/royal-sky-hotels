@@ -1,5 +1,4 @@
 import "./App.css";
-import HomePage from "./components/HomePageComponent/HomePage";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GallleryPage from "./components/GalleryComponent/GallleryPage";
@@ -16,8 +15,20 @@ import RoleHomePage from "./components/HomePageComponent/RoleHomePage";
 import HotelManagerDashboard from "./components/HotelManagerDashboard/HotelManagerDashboard";
 import EditBookingStatus from "./components/HotelManagerDashboard/EditBookingStatus";
 import AddHotelFacilities from "./components/HotelManagerDashboard/AddHotelFacilities";
+import SkeletonNavbar from "./components/NavbarComponent/Skeleton/SkeletonNavbar";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
+  if (isLoading) {
+    return <SkeletonNavbar />;
+  }
   return (
     <Router>
       <ScrollToTop />

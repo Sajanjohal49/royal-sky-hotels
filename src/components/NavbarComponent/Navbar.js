@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import logo1 from "../svg/LOGO.svg";
+import React from "react";
+
 import RoleNav from "./RoleNav";
-import darkMode from "../svg/LogoWhite.svg";
 
 function Navbar() {
   return <RoleNav />;
