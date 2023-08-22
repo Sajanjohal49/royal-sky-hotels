@@ -1,6 +1,4 @@
 import React from "react";
-import LocationNavigator from "../LocationComponent/LocationBasedNavigator.js";
-import LocationBasedNavigator from "../LocationComponent/LocationBasedNavigator.js";
 import { Link } from "react-router-dom";
 import ImageWithUrl from "../HomePageComponent/ImageWithUrl";
 

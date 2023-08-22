@@ -13,14 +13,14 @@ const FooterContent = () => {
             </h2>
             <ul className="font-medium text-gray-900 dark:text-gray-100">
               <li className="mb-4">
-                <a href="#" className=" hover:underline">
+                <a href="/" className=" hover:underline">
                   &#169; SkyHilXX.com Inc.
                 </a>
               </li>
               <li className="">
                 <div className="flex space-x-6 ">
                   <a
-                    href="#"
+                    href="/"
                     className="text-gray-800 hover:text-gray-900 dark:hover:text-white">
                     <svg
                       className="w-5 h-5"
@@ -36,7 +36,7 @@ const FooterContent = () => {
                     <span className="sr-only">Facebook page</span>
                   </a>
                   <a
-                    href="#"
+                    href="/"
                     className="text-gray-800 hover:text-gray-900 dark:hover:text-white">
                     <svg
                       className="w-5 h-5"
@@ -52,7 +52,7 @@ const FooterContent = () => {
                     <span className="sr-only">Instagram page</span>
                   </a>
                   <a
-                    href="#"
+                    href="/"
                     className="text-gray-800 hover:text-gray-900 dark:hover:text-white">
                     <svg
                       className="w-5 h-5"
@@ -64,7 +64,7 @@ const FooterContent = () => {
                     <span className="sr-only">Twitter page</span>
                   </a>
                   <a
-                    href="#"
+                    href="/"
                     className="text-gray-800 hover:text-gray-900 dark:hover:text-white">
                     <svg
                       className="w-5 h-5"
@@ -80,7 +80,7 @@ const FooterContent = () => {
                     <span className="sr-only">GitHub account</span>
                   </a>
                   <a
-                    href="#"
+                    href="/"
                     className="text-gray-800 hover:text-gray-900 dark:hover:text-white">
                     <svg
                       className="w-5 h-5"
@@ -105,22 +105,22 @@ const FooterContent = () => {
             </h2>
             <ul className="font-medium text-gray-800 dark:text-gray-400">
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Discord Server
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Twitter
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Facebook
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Contact Us
                 </a>
               </li>
@@ -132,17 +132,17 @@ const FooterContent = () => {
             </h2>
             <ul className="font-medium text-gray-800 dark:text-gray-400">
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Privacy Policy
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Licensing
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Terms &amp; Conditions
                 </a>
               </li>
@@ -154,22 +154,22 @@ const FooterContent = () => {
             </h2>
             <ul className="font-medium text-gray-800 dark:text-gray-400">
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   iOS
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Android
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Windows
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="/" className="hover:underline">
                   MacOS
                 </a>
               </li>

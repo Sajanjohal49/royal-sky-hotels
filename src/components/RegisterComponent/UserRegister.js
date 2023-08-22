@@ -85,14 +85,12 @@ const UserRegister = () => {
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <div className="flex justify-center text-center ">
           {" "}
-          <a
-            href="/"
-            className="flex items-center pl-2 mb-6 text-lg text-gray-100 md:text-3xl font-euclidBold dark:text-white">
+          <div className="flex items-center pl-2 mb-6 text-lg text-gray-100 md:text-3xl font-euclidBold dark:text-white">
             Welcome to{" "}
             <span className="px-3 py-1 mx-2 bg-green-600 rounded-full text-slate-50">
               Royal Sky Hotels
             </span>
-          </a>
+          </div>
         </div>
         <div className=" bg-white lg:min-w-[800px] min-w-full   rounded-3xl shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800/70 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8 ">

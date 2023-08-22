@@ -3,7 +3,7 @@ import { FaSpinner } from "react-icons/fa";
 
 const SkeletonNavbar = () => {
   return (
-    <div className="pb-5 dark:bg-gray-900 bg-defaultWhite h-screen ">
+    <div className="pb-5 dark:bg-gray-900 bg-defaultWhite h-screen overflow-hidden  ">
       <div className="flex items-center justify-between h-16 sm:h-20 relative">
         <div className=" relative flex items-center  px-4 py-2 mx-7  w-full sm:mx-20 ">
           <div className="flex items-center space-x-4 sm:ml-8  animate-pulse  ">

@@ -1,27 +1,21 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaHotel } from "react-icons/fa";
-import { IoBedOutline, IoIosBed } from "react-icons/io";
-import ImageWithUrl from "../HomePageComponent/ImageWithUrl";
-import ImagesImplementor from "./ImagesImplementor";
 import ImagesSection from "./ImagesSection";
 import StickySection from "./StickySection";
 import AboutSection from "./AboutSection";
 import AvailabilitySection from "./AvailabilitySection";
 import GetHotelFacilities from "../FacilityComponent/GetHotelFacilities";
 import GetHotelReviews from "../HotelReviewComponent/GetHotelReviews";
-import Card from "../HomePageComponent/Card";
+
 import HotelSuggestedCard from "./HotelSuggestedCard";
 import baseURL from "../../apiConfig";
 
 const Hotel = () => {
-  const boundaryRef = useRef(null);
   const navigate = useNavigate();
   const customer = JSON.parse(sessionStorage.getItem("active-customer"));
-  const hotelManager = JSON.parse(
-    sessionStorage.getItem("active-hotelManager")
-  );
+
   const { hotelId, locationId } = useParams();
   const [hotels, setHotels] = useState([]);
   const [hotel, setHotel] = useState({
@@ -64,13 +58,14 @@ const Hotel = () => {
     };
     getHotelsByLocation();
     getHotel();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hotelId]);
   const reviewPageNavigator = () => {
     navigate("/hotel/" + hotelId + "/customer/" + customer.id + "/review");
   };
-  const navigateToAddReviewPage = () => {
-    navigate("/hotel/" + hotelId + "/location/" + locationId + "/add/review");
-  };
+  // const navigateToAddReviewPage = () => {
+  //   navigate("/hotel/" + hotelId + "/location/" + locationId + "/add/review");
+  // };
 
   return (
     <div className="px-6 pt-4 pb-20 text-gray-800 lg:px-24 dark:bg-gray-900 dark:text-gray-200 ">

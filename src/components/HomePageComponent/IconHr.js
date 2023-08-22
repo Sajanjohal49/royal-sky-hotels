@@ -7,7 +7,7 @@ const IconHr = () => {
       <div className="flex items-center justify-center mb-10 max-w-5">
         <div>
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-            <mark className="px-2 rounded dark:bg-orange-200 bg-emerald-200">
+            <mark className="px-2 rounded dark:bg-orange-200 text-white dark:text-slate-900 bg-teal-900">
               Take Charge
             </mark>{" "}
             of your vacation days

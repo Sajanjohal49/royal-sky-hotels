@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import ImageWithUrl from "../../HomePageComponent/ImageWithUrl";
+
 import BookingStatus from "./BookingStatus";
 import baseURL from "../../../apiConfig";
 

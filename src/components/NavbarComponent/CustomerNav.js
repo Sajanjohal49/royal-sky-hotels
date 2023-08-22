@@ -124,14 +124,14 @@ const CustomerNav = () => {
         id="mobile-menu">
         <div className="absolute z-20 text-gray-200 origin-top transform bg-teal-900 right-2 dark:bg-orange-200 w-fit rounded-3xl top-20 md:hidden">
           <div className="px-3 pt-2 space-y-1 text-gray-200 dark:text-gray-900 sm:px-3">
-            <a
-              href="/customer/allbookings"
+            <Link
+              to="/customer/allbookings"
               className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-white">
               <span>
                 <RiHotelLine className="mr-2 text-xl " />
               </span>
               <p>booked Hotel</p>
-            </a>
+            </Link>
           </div>
           <div className="px-2 pb-3 space-y-1 text-gray-200 sm:px-3 dark:text-gray-900">
             <button

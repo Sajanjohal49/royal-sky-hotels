@@ -105,7 +105,7 @@ const ContactSection = () => {
               </div>
               <button
                 type="submit"
-                className="px-5 py-3 text-sm font-medium text-center text-gray-900 rounded-full dark:bg-orange-200 bg-emerald-200 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                className="px-5 py-3 text-sm font-medium text-center text-gray-200 dark:text-gray-900 rounded-full dark:bg-orange-200 bg-teal-900 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                 Send message
               </button>
             </form>
@@ -123,7 +123,7 @@ const ContactSection = () => {
                   Call us to speak to a member of our team. We are always happy
                   to help.
                 </p>
-                <p className="pt-1.5 text-sm text-emerald-400">
+                <p className="pt-1.5 text-sm text-teal-900 dark:text-orange-200">
                   +(646) XXXXXXXXX
                 </p>
               </div>

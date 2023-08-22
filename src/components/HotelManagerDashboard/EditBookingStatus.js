@@ -6,9 +6,7 @@ import baseURL from "../../apiConfig";
 const EditBookingStatus = () => {
   const { bookingId } = useParams();
   const navigate = useNavigate();
-  const hotelManager = JSON.parse(
-    sessionStorage.getItem("active-hotelManager")
-  );
+
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
@@ -23,6 +21,7 @@ const EditBookingStatus = () => {
       }
     };
     retrieveDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleFieldChange = (id, field, value) => {
     setBookings(
