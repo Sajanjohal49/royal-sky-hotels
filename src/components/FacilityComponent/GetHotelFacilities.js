@@ -16,6 +16,7 @@ const GetHotelFacilities = ({ hotel }) => {
       }
     };
     getFacilitiesByHotelId();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hotelId]);
   const retrieveFacilitiesByHotelId = async () => {
     const response = await axios.get(

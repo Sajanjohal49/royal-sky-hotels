@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import baseURL from "../../apiConfig";
@@ -10,8 +9,6 @@ const AddHotelFacilities = () => {
   const [facilityId, setFacilityId] = useState([]);
 
   const [allFacilities, setAllFacilities] = useState([]);
-
-  let navigate = useNavigate();
 
   const retrieveHotelFacilities = async () => {
     const response = await axios.get(
@@ -29,6 +26,7 @@ const AddHotelFacilities = () => {
     };
 
     getHotelFacilities();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const retrieveAllFacilities = async () => {

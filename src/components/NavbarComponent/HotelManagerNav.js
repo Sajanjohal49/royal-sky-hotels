@@ -6,9 +6,7 @@ import logo2 from "../svg/LogoWhite.svg";
 import logo1 from "../svg/LOGO.svg";
 const HotelManagerNav = () => {
   const navbarRef = useRef();
-  const hotelManager = JSON.parse(
-    sessionStorage.getItem("active-hotelManager")
-  );
+
   let navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,7 +14,7 @@ const HotelManagerNav = () => {
     setIsOpen(!isOpen);
   };
 
-  const customerLogout = () => {
+  const hotelManagerLogout = () => {
     sessionStorage.removeItem("active-hotelManager");
     window.location.reload(true);
     navigate("/");
@@ -37,7 +35,7 @@ const HotelManagerNav = () => {
       <div className="flex items-center justify-between h-16 sm:h-20">
         <div className="flex items-center ml-8 bg-gray-800 md:mx-16 dark:bg-orange-100 ">
           <div className="flex-shrink-0 ">
-            <a href="/">
+            <Link to="/">
               <img
                 className="absolute top-0 dark:visible h-16 px-2 py-4 bg-[#2C4B48] invisible rounded-b-lg dark:bg-orange-200 sm:px-4 sm:py-5 sm:h-20 "
                 src={logo1}
@@ -48,7 +46,7 @@ const HotelManagerNav = () => {
                 src={logo2}
                 alt="Logo"
               />
-            </a>
+            </Link>
           </div>
           <div className="absolute hidden right-20 md:block">
             <div className="flex pt-3 ml-10 space-x-4 text-gray-900 dark:text-gray-200 ">
@@ -62,7 +60,7 @@ const HotelManagerNav = () => {
                 <p>All Booked Hotels</p>
               </Link>
               <button
-                onClick={customerLogout}
+                onClick={hotelManagerLogout}
                 className="flex items-center justify-center px-4 py-2 text-gray-200 bg-teal-900 rounded-tl-xl rounded-br-xl dark:text-gray-900 dark:ring-emerald-200 dark:bg-emerald-100 hover:ring-4 ring-emerald-200">
                 <RiLogoutCircleLine className="mr-2 text-lg font-bold " />
                 Logout
@@ -115,18 +113,18 @@ const HotelManagerNav = () => {
         ref={navbarRef}>
         <div className="absolute z-20 text-gray-200 origin-top transform bg-teal-900 right-2 dark:bg-orange-200 w-fit rounded-3xl top-20 md:hidden">
           <div className="px-3 pt-2 space-y-1 text-gray-200 dark:text-gray-900 sm:px-3">
-            <a
-              href="/hotelManager/allbookings"
+            <Link
+              to="/hotelManager/allbookings"
               className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-white">
               <span>
                 <RiHotelLine className="mr-2 text-xl " />
               </span>
               <p>booked Hotel</p>
-            </a>
+            </Link>
           </div>
           <div className="px-2 pb-3 space-y-1 text-gray-200 sm:px-3 dark:text-gray-900">
             <button
-              onClick={customerLogout}
+              onClick={hotelManagerLogout}
               className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-white">
               <AiOutlineLogout className="mr-3 text-lg " />
               <p>Logout</p>

@@ -29,7 +29,7 @@ const NormalNav = () => {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex items-center bg-gray-800 dark:bg-orange-100">
-            <div className="flex-shrink-0">
+            <div className="">
               <NavLink to="/">
                 <img
                   className="absolute top-0 visible h-16 px-2 py-4 bg-teal-900 rounded-b-lg dark:bg-orange-200 sm:px-4 sm:py-5 sm:h-20"
@@ -55,6 +55,7 @@ const NormalNav = () => {
                   }`}>
                   Home
                 </NavLink>
+
                 <NavLink
                   to="/gallery"
                   className={`px-4 py-2 font-medium rounded-full hover:bg-gray-900 dark:hover:text-gray-900 dark:hover:bg-orange-200 hover:text-white ${

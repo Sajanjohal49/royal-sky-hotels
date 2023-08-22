@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import baseURL from "../../apiConfig";
 
 function ImageWithUrl({ url, hotel }) {
@@ -31,7 +31,7 @@ function ImageWithUrl({ url, hotel }) {
   return (
     <div>
       {loading ? (
-        <div className="w-full h-72 bg-gray-200 rounded-xl animate-pulse"></div>
+        <div className="sm:w-full h-72   bg-gray-200  rounded-xl animate-pulse"></div>
       ) : (
         <img
           src={imageUrl}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import baseURL from "../../apiConfig";
 
 const LoginPage = () => {
@@ -71,11 +71,9 @@ const LoginPage = () => {
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="flex justify-center text-center">
             {" "}
-            <a
-              href="/"
-              className="flex items-center pl-2 mb-6 text-3xl font-extrabold text-gray-100 dark:text-white">
+            <div className="flex items-center pl-2 mb-6 text-3xl font-extrabold text-gray-100 dark:text-white">
               Welcome to Royal Sky Hotels
-            </a>
+            </div>
           </div>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800/70 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -161,11 +159,11 @@ const LoginPage = () => {
 
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
-                  <a
-                    href="/user/register"
+                  <Link
+                    to="/user/register"
                     className="font-medium text-emerald-600 -600 hover:underline dark:text-primary-500">
                     Sign up
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>

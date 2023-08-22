@@ -51,8 +51,8 @@ const AdminNav = () => {
           </div>
           <div className="absolute hidden right-20 md:block">
             <div className="flex pt-3 ml-10 space-x-4 text-gray-900 dark:text-gray-200 ">
-              <a
-                href="/admin/dashboard"
+              <Link
+                to="/admin/dashboard"
                 className="flex items-center justify-center px-4 py-2 text-gray-100 bg-teal-900 rounded-full dark:text-gray-900 dark:bg-orange-200 hover:ring-4 ring-orange-100 ">
                 {" "}
                 <span>
@@ -60,7 +60,7 @@ const AdminNav = () => {
                 </span>
                 <p>Go to Dashboard</p>
                 <RiShareForwardFill className="ml-2 text-lg " />
-              </a>
+              </Link>
               <button
                 onClick={adminLogout}
                 className="flex items-center justify-center px-4 py-2 text-gray-200 bg-teal-900 rounded-tl-xl rounded-br-xl dark:text-gray-900 dark:ring-emerald-200 dark:bg-emerald-100 hover:ring-4 ring-emerald-200">
@@ -115,12 +115,12 @@ const AdminNav = () => {
         ref={navbarRef}>
         <div className="absolute z-20 text-gray-200 origin-top transform bg-teal-900 right-2 dark:bg-orange-200 w-fit rounded-3xl top-20 md:hidden">
           <div className="px-3 pt-2 space-y-1 text-gray-200 dark:text-gray-900 sm:px-3">
-            <a
-              href="/admin/dashboard"
+            <Link
+              to="/admin/dashboard"
               className="flex px-4 py-2 text-base font-medium rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-900 hover:text-white">
               <p>Go to Dashboard</p>
               <RiShareForwardFill className="ml-2 text-lg " />
-            </a>
+            </Link>
           </div>
           <div className="px-2 pb-3 space-y-1 text-gray-200 sm:px-3 dark:text-gray-900">
             <button

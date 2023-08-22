@@ -3,7 +3,6 @@ import Card from "./Card";
 
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import GetAllLocations from "../LocationComponent/GetAllLocations";
 import baseURL from "../../apiConfig";
 import { useLoading } from "../utils/customHooks";
 
@@ -43,12 +42,13 @@ function HotelsGrid() {
       getHotelsByLocation();
     }
     stopLoading();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locationId]);
 
   return (
-    <div className="px-2 sm:px-10">
+    <div className="px-2 sm:px-10   ">
       <LoadingComponent isLoading={isLoading}>
-        <div className="grid items-center justify-center grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:px-10">
+        <div className="grid items-center justify-center grid-cols-1   gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:px-10">
           {hotels.map((hotel) => {
             return <Card key={hotel.id} item={hotel} />;
           })}

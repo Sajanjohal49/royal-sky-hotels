@@ -15,6 +15,7 @@ const GetHotelReviews = (hotel) => {
       }
     };
     getHotelReviews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hotelId]);
 
   const retrieveHotelReviews = async () => {

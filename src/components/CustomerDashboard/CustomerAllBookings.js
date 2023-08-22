@@ -31,6 +31,7 @@ const CustomerAllBookings = () => {
       console.log(allbookings.bookings);
     };
     getAllBookings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log("Bookings:", bookings);

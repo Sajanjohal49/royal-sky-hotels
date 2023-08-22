@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import React from "react";
 import BookingStatus from "../AdminDashboard/ViewAllBookings/BookingStatus";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import baseURL from "../../apiConfig";
 
 const HotelManagerDashboard = () => {
@@ -34,6 +34,7 @@ const HotelManagerDashboard = () => {
       console.log("find customer Name" + allbookings.bookings);
     };
     getAllBookings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log("Bookings:", bookings);
@@ -42,9 +43,9 @@ const HotelManagerDashboard = () => {
     if (lowerCaseStatus === "confirmed") {
       return "bg-green-900/70 dark:bg-green-100/80"; // CSS class for confirmed status background color
     } else if (lowerCaseStatus === "pending") {
-      return "bg-yellow-900/70 dark:bg-yellow-100/80"; // CSS class for pending status background color
+      return "bg-yellow-900/70 dark:bg-yellow-100/80";
     } else if (lowerCaseStatus === "cancelled") {
-      return "bg-red-900/70 dark:bg-red-200"; // CSS class for canceled status background color
+      return "bg-red-900/70 dark:bg-red-200";
     }
   };
 

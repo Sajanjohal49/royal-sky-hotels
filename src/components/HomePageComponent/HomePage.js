@@ -1,10 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
-import smallScreenVideo from "../videos/beach-41352.mp4";
-import VideoText from "./HeroText";
-import cardImage from "../images/bedroom-gc90a1b79f_1920.jpg";
 import "./homePage.scss";
-import BannerFeatures from "./BannerFeatures";
+
 import HotelsGrid from "./HotelsGrid";
 import IconHr from "./IconHr";
 import ContactSection from "./ContactSection";

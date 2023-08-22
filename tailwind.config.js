@@ -11,6 +11,7 @@ module.exports = {
       euclidBold: ["Euclid Circular A Bold", "sans-serif"],
       euclidSemibold: ["Euclid Circular A Semibold", "sans-serif"],
     },
+
     extend: {
       colors: {
         defaultWhite: "#F3F0EA",

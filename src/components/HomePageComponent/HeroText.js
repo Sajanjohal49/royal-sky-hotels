@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useMediaQuery } from "react-responsive";
 import "./homePage.scss";
 import "./HomePage.css";
 import { motion } from "framer-motion";
 import Icon from "../svg/Earth Planet.svg";
 import { RiArrowRightLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 function HeroText(props) {
   const isSmallScreen = useMediaQuery({ query: "(max-width: 640px)" });
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // const [isDarkMode, setIsDarkMode] = useState(false);
 
-  useEffect(() => {
-    const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  // useEffect(() => {
+  //   const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-    const handleDarkModeChange = (event) => {
-      setIsDarkMode(event.matches);
-    };
+  //   const handleDarkModeChange = (event) => {
+  //     setIsDarkMode(event.matches);
+  //   };
 
-    darkModeQuery.addEventListener("change", handleDarkModeChange);
-    setIsDarkMode(darkModeQuery.matches);
+  //   darkModeQuery.addEventListener("change", handleDarkModeChange);
+  //   setIsDarkMode(darkModeQuery.matches);
 
-    return () => {
-      darkModeQuery.removeEventListener("change", handleDarkModeChange);
-    };
-  }, []);
+  //   return () => {
+  //     darkModeQuery.removeEventListener("change", handleDarkModeChange);
+  //   };
+  // }, []);
 
   return (
     <div
@@ -54,7 +55,7 @@ function HeroText(props) {
         </div>
       </div>
       <div className="max-w-[19rem] py-2 my-12 text-center text-gray-00 rounded-full  dark:bg-orange-200 bg-teal-900     ">
-        <a href="/allHotels">
+        <Link to="/allHotels">
           <button className="flex items-center justify-center mx-auto text-lg text-gray-200 dark:text-gray-900">
             Explore All Hotels
             <div>
@@ -76,7 +77,7 @@ function HeroText(props) {
               </motion.div>
             </div>
           </button>
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -1,13 +1,11 @@
 import React from "react";
 import ImageWithUrl from "./ImageWithUrl";
-import LocationNavigator from "../LocationComponent/LocationBasedNavigator.js";
-import LocationBasedNavigator from "../LocationComponent/LocationBasedNavigator.js";
 import { Link } from "react-router-dom";
 
 function Card(hotel) {
   return (
     <div className="py-4 mx-auto sm:mx-0">
-      <div className="w-full max-w-sm pb-6 border-gray-200 rounded-xl dark:bg-transparent dark:border-gray-700">
+      <div className="w-full max-w-sm pb-6 min-w-[80vw] sm:min-w-full border-gray-200 rounded-xl dark:bg-transparent dark:border-gray-700">
         <div className="">
           {" "}
           <Link
