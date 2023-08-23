@@ -49,7 +49,7 @@ const CustomerAllBookings = () => {
   };
 
   return (
-    <div className="w-full bg-defaultWhite dark:bg-gray-900">
+    <div className="w-full bg-defaultWhite dark:bg-gray-900 ">
       <div className="pt-10 pb-20">
         {isLoading ? (
           <p className="text-2xl"> Please wait!</p>

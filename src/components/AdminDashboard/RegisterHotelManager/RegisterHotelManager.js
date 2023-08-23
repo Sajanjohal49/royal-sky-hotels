@@ -65,7 +65,7 @@ const RegisterHotelManager = () => {
           <div className="w-full mb-4 ">
             <label className="block my-2 ">First Name</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.firstName}
               onChange={(e) =>
                 setFormData({ ...formData, firstName: e.target.value })
@@ -78,7 +78,7 @@ const RegisterHotelManager = () => {
           <div className="mb-4">
             <label className="block my-2">Last Name</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.lastName}
               onChange={(e) =>
                 setFormData({ ...formData, lastName: e.target.value })
@@ -91,7 +91,7 @@ const RegisterHotelManager = () => {
           <div className="mb-4">
             <label className="block my-2">Email</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.emailId}
               onChange={(e) =>
                 setFormData({ ...formData, emailId: e.target.value })
@@ -102,7 +102,7 @@ const RegisterHotelManager = () => {
           <div className="mb-4">
             <label className="block my-2">password</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               type="password"
               value={formData.password}
               onChange={(e) =>
@@ -114,7 +114,7 @@ const RegisterHotelManager = () => {
           <div className="mb-4">
             <label className="block my-2">Gender</label>
             <select
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.sex}
               onChange={(e) =>
                 setFormData({ ...formData, sex: e.target.value })
@@ -129,7 +129,7 @@ const RegisterHotelManager = () => {
           <div className="mb-4">
             <label className="block my-2">Contact No</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.contact}
               onChange={(e) =>
                 setFormData({ ...formData, contact: e.target.value })
@@ -142,7 +142,7 @@ const RegisterHotelManager = () => {
           <div className="mb-4">
             <label className="block my-2">Age</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               type="number"
               value={formData.age}
               onChange={(e) =>
@@ -154,7 +154,7 @@ const RegisterHotelManager = () => {
           <div className="mb-4">
             <label className="block my-2">Street</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.street}
               onChange={(e) =>
                 setFormData({ ...formData, street: e.target.value })
@@ -165,7 +165,7 @@ const RegisterHotelManager = () => {
           <div className="mb-4">
             <label className="block my-2">City</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               type="text"
               value={formData.city}
               onChange={(e) =>
@@ -177,7 +177,7 @@ const RegisterHotelManager = () => {
           <div className="mb-4">
             <label className="block my-2">Postal Code</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               type="text"
               value={formData.postalCode}
               onChange={(e) =>
