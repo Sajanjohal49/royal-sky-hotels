@@ -14,6 +14,7 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { FaHotel } from "react-icons/fa";
 import { BsReverseListColumnsReverse } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import AllHotels from "./AddHotel/AllHotels";
 
 const AdminDashboard = () => {
   // State to track the currently active section
@@ -30,6 +31,13 @@ const AdminDashboard = () => {
       navigate("/");
     }
   }, [admin, navigate]);
+  const sectionsCSS = (section) => {
+    return `flex mt-3  w-fit px-3 py-4 rounded-2xl items-center  justify-center     cursor-pointer ${
+      activeSection === section
+        ? "dark:bg-emerald-200 bg-defaultGreen text-defaultWhite dark:text-gray-900"
+        : " dark:bg-orange-200 bg-defaultOrange/90   dark:text-gray-900  "
+    }`;
+  };
 
   // Render the currently active section
   const renderActiveSection = () => {
@@ -41,7 +49,7 @@ const AdminDashboard = () => {
       case "register-hotel-manager":
         return <RegisterHotelManager />;
       case "add-hotel":
-        return <AddHotel />;
+        return <AllHotels />;
       case "view-all-bookings":
         return <ViewAllBookings />;
       default:
@@ -60,11 +68,7 @@ const AdminDashboard = () => {
         <nav className="flex flex-wrap justify-between px-2 py-16 text-white lg:px-20 ">
           <div
             onClick={() => handleSectionChange("view-all-bookings")}
-            className={`flex mt-3  w-fit px-3  rounded-tl-3xl rounded-br-3xl items-center  justify-center     cursor-pointer ${
-              activeSection === "view-all-bookings"
-                ? "dark:bg-emerald-200 bg-defaultGreen text-defaultWhite dark:text-gray-900"
-                : " dark:bg-orange-200 bg-defaultOrange dark:text-gray-900    "
-            }`}>
+            className={sectionsCSS("view-all-bookings")}>
             <button className="flex items-center justify-center text-center">
               <BsReverseListColumnsReverse className="mr-2 text-2xl" />
               View All Bookings
@@ -72,11 +76,7 @@ const AdminDashboard = () => {
           </div>
           <div
             onClick={() => handleSectionChange("add-location")}
-            className={`flex mt-3  w-fit px-3 py-4 rounded-tl-3xl rounded-br-3xl items-center  justify-center     cursor-pointer ${
-              activeSection === "add-location"
-                ? "dark:bg-emerald-200 bg-defaultGreen text-defaultWhite dark:text-gray-900"
-                : " dark:bg-orange-200 bg-defaultOrange  dark:text-gray-900  "
-            }`}>
+            className={sectionsCSS("add-location")}>
             <button className="flex items-center justify-center text-center">
               <MdOutlineAddLocationAlt className="mr-2 text-2xl" />
               Add Location
@@ -84,11 +84,7 @@ const AdminDashboard = () => {
           </div>
           <div
             onClick={() => handleSectionChange("register-hotel-manager")}
-            className={`flex  mt-3  w-fit px-3 py-4 rounded-tl-3xl rounded-br-3xl items-center  justify-center    cursor-pointer ${
-              activeSection === "register-hotel-manager"
-                ? "dark:bg-emerald-200 bg-defaultGreen text-defaultWhite dark:text-gray-900"
-                : " dark:bg-orange-200 bg-defaultOrange dark:text-gray-900  "
-            }`}>
+            className={sectionsCSS("register-hotel-manager")}>
             <button className="flex items-center justify-center text-center">
               <GiArchiveRegister className="mr-2 text-2xl" />
               Register Hotel Manager
@@ -96,24 +92,16 @@ const AdminDashboard = () => {
           </div>
           <div
             onClick={() => handleSectionChange("add-hotel")}
-            className={`  flex mt-3  w-fit px-3 py-4 rounded-tl-3xl rounded-br-3xl items-center  justify-center     cursor-pointer ${
-              activeSection === "add-hotel"
-                ? "dark:bg-emerald-200 bg-defaultGreen text-defaultWhite dark:text-gray-900"
-                : " dark:bg-orange-200 bg-defaultOrange dark:text-gray-900  "
-            }`}>
+            className={sectionsCSS("add-hotel")}>
             <button className="flex items-center justify-center text-center">
               <FaHotel className="mr-2 text-2xl" />
-              Add Hotel
+              View All Hotels
             </button>
           </div>
 
           <div
             onClick={() => handleSectionChange("add-facility")}
-            className={`flex mt-3  w-fit px-3 py-4 rounded-tl-3xl rounded-br-3xl items-center  justify-center    cursor-pointer ${
-              activeSection === "add-facility"
-                ? "dark:bg-emerald-200 bg-defaultGreen text-defaultWhite dark:text-gray-900"
-                : " dark:bg-orange-200 bg-defaultOrange  dark:text-gray-900  "
-            }`}>
+            className={sectionsCSS("add-facility")}>
             <button className="flex items-center justify-center text-center">
               <IoIosAddCircleOutline className="mr-2 text-2xl" />
               Add Facility

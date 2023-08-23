@@ -65,8 +65,11 @@ function AddLocation() {
               City:
             </label>
             <input
-              className={`px-4 py-2 border text-gray-900 w-full rounded-full ${
-                cityError ? "border-red-500" : "border-gray-300"
+              className={` bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+              ${
+                cityError
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-600"
               } rounded`}
               type="text"
               id="city"
@@ -81,8 +84,11 @@ function AddLocation() {
             </label>
             <textarea
               id="description"
-              className={`px-4 py-2 w-full text-gray-900 border rounded-3xl ${
-                descriptionError ? "border-red-500" : "border-gray-300"
+              className={` bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+              ${
+                descriptionError
+                  ? "border-red-500"
+                  : "border-gray-300 dark:border-gray-600"
               } rounded`}
               value={description}
               onChange={(e) => setDescription(e.target.value)}

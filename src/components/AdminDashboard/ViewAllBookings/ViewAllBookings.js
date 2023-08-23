@@ -30,18 +30,18 @@ const ViewAllBookings = () => {
   const getBgColorByStatus = (status) => {
     const lowerCaseStatus = status.toLowerCase();
     if (lowerCaseStatus === "confirmed") {
-      return "bg-green-900/70 dark:bg-green-100/80"; // CSS class for confirmed status background color
+      return " text-green-800 border-green-700 border-2 dark:text-green-500 dark:border-green-600"; // CSS class for confirmed status background color
     } else if (lowerCaseStatus === "pending") {
-      return "bg-yellow-900/70 dark:bg-yellow-100/80"; // CSS class for pending status background color
+      return "text-blue-800 border-blue-700 border-2 dark:text-blue-500 dark:border-blue-600"; // CSS class for pending status background color
     } else if (lowerCaseStatus === "cancelled") {
-      return "bg-red-900/70 dark:bg-red-200"; // CSS class for canceled status background color
+      return "text-red-700 border-red-700 border-2 dark:text-red-500 dark:border-red-600"; // CSS class for canceled status background color
     }
   };
 
   return (
-    <div className="w-full bg-defaultWhite dark:bg-gray-900">
-      <div className="pt-10 pb-20">
-        <h2 className="py-12 text-4xl font-bold text-center text-defaultGreen dark:text-orange-200 ">
+    <div className="w-full bg-defaultWhite dark:bg-gray-900 ">
+      <div className=" pb-20  text-red">
+        <h2 className="sm:py-6 py-2 text-4xl font-bold text-center text-defaultGreen dark:text-orange-200 ">
           All Bookings
         </h2>
         {isLoading ? (
@@ -101,32 +101,34 @@ const ViewAllBookings = () => {
                     return (
                       <tr
                         key={item.id}
-                        className={`    dark:text-gray-900 text-gray-200 border-b ${getBgColorByStatus(
-                          item.status
-                        )} dark:border-gray-700`}>
+                        className={` text-gray-800     dark:text-gray-300 border-b  dark:border-gray-700`}>
                         <th
                           scope="row"
-                          className="px-6 py-4 font-medium whitespace-nowrap ">
+                          className="px-6 py-2
+            font-medium whitespace-nowrap ">
                           {item.customerName}
                         </th>
-                        <td className="px-6 py-4">{item.userId}</td>
-                        <td className="px-6 py-4">{item.bookingId}</td>
-                        <td className="px-6 py-4">{item.checkIn}</td>
-                        <td className="px-6 py-4">{item.checkOut}</td>
-                        <td className="px-6 py-4">{item.customerContact}</td>
-                        <td className="px-6 py-4">{item.hotelId}</td>
-                        <td className="px-6 py-4">{item.hotelName}</td>
-                        <td className="px-6 py-4"> {item.hotelContact}</td>
-                        <td className="px-6 py-4">{item.hotelEmail}</td>
-                        <td className="px-6 py-4">
-                          <div className="flex px-2 py-2 border rounded-lg w-fit p y-2 dark:border-emerald-300 dark:bg-emerald-100/60 ">
+                        <td className="px-6 py-2 ">{item.userId}</td>
+                        <td className="px-6 py-2">{item.bookingId}</td>
+                        <td className="px-6 py-2">{item.checkIn}</td>
+                        <td className="px-6 py-2">{item.checkOut}</td>
+                        <td className="px-6 py-2">{item.customerContact}</td>
+                        <td className="px-6 py-2">{item.hotelId}</td>
+                        <td className="px-6 py-2">{item.hotelName}</td>
+                        <td className="px-6 py-2"> {item.hotelContact}</td>
+                        <td className="px-6 py-2">{item.hotelEmail}</td>
+                        <td className="px-6 py-2">
+                          <div
+                            className={`flex px-2 py-2 border rounded-lg w-fit   y-2 ${getBgColorByStatus(
+                              item.status
+                            )} `}>
                             <BookingStatus status={item.status} />
                             {item.status}
                           </div>
                         </td>
-                        <td className="px-6 py-4">{item.totalDay}</td>
-                        <td className="px-6 py-4">{item.totalRoom}</td>
-                        <td className="px-6 py-4">{item.totalAmount}</td>
+                        <td className="px-6 py-2">{item.totalDay}</td>
+                        <td className="px-6 py-2">{item.totalRoom}</td>
+                        <td className="px-6 py-2">{item.totalAmount}</td>
                       </tr>
                     );
                   })}

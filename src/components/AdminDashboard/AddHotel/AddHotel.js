@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import baseURL from "../../../apiConfig";
+import AllHotelsTable from "../../DataTables/AllHotelsTable";
 
 const AddHotel = () => {
   const [image1, setImage1] = useState(null);
@@ -89,18 +90,15 @@ const AddHotel = () => {
     getAllHotelManagers();
   }, []);
   return (
-    <div className="mx-auto max-w-[1100px]">
-      <p className="text-xl text-center sm:text-3xl text-defaultGreen font-euclidSemibold dark:text-orange-200">
-        Add Hotel
-      </p>
-      <div className="flex items-center justify-center w-full mx-auto mt-10 text-gray-900 rounded-3xl dark:text-gray-200">
+    <div className=" ">
+      <div className="flex items-center justify-center w-full mx-auto  text-gray-900 rounded-3xl dark:text-gray-200">
         <form
-          className="items-center justify-center w-full gap-4 py-2 text-orange-900 capitalize sm:grid sm:gap-5 sm:py-10 sm:grid-cols-2 sm:px-10 dark:text-orange-200"
+          className="items-center justify-center w-full gap-4  text-orange-900 capitalize sm:grid sm:gap-5 sm:py-10 sm:grid-cols-2 sm:px-10 dark:text-slate-200"
           onSubmit={handleSubmit}>
           <div>
-            <label className="block my-2 ">Hotel Name</label>
+            <label className="block my-1 ">Hotel Name</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.name}
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
@@ -109,9 +107,9 @@ const AddHotel = () => {
             />
           </div>
           <div>
-            <label className="block my-2 ">Description</label>
+            <label className="block my-1 ">Description</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.description}
               onChange={(e) =>
                 setFormData({ ...formData, description: e.target.value })
@@ -120,9 +118,9 @@ const AddHotel = () => {
             />
           </div>
           <div>
-            <label className="block my-2 ">Location</label>
+            <label className="block my-1 ">Location</label>
             <select
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.locationId}
               onChange={(e) =>
                 setFormData({ ...formData, locationId: e.target.value })
@@ -139,9 +137,9 @@ const AddHotel = () => {
             </select>
           </div>
           <div>
-            <label className="block my-2 ">Hotel Manager</label>
+            <label className="block my-1 ">Hotel Manager</label>
             <select
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.userId}
               onChange={(e) =>
                 setFormData({ ...formData, userId: e.target.value })
@@ -158,9 +156,9 @@ const AddHotel = () => {
             </select>
           </div>
           <div>
-            <label className="block my-2 ">Street</label>
+            <label className="block my-1 ">Street</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.street}
               onChange={(e) =>
                 setFormData({ ...formData, street: e.target.value })
@@ -169,9 +167,9 @@ const AddHotel = () => {
             />
           </div>
           <div>
-            <label className="block my-2 ">Postal Code</label>
+            <label className="block my-1 ">Postal Code</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.postalCode}
               onChange={(e) =>
                 setFormData({ ...formData, postalCode: e.target.value })
@@ -180,9 +178,9 @@ const AddHotel = () => {
             />
           </div>
           <div>
-            <label className="block my-2 ">Email ID</label>
+            <label className="block my-1 ">Email ID</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.emailId}
               onChange={(e) =>
                 setFormData({ ...formData, emailId: e.target.value })
@@ -191,9 +189,9 @@ const AddHotel = () => {
             />
           </div>
           <div>
-            <label className="block my-2 ">Price per Day</label>
+            <label className="block my-1 ">Price per Day</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.pricePerDay}
               onChange={(e) =>
                 setFormData({ ...formData, pricePerDay: e.target.value })
@@ -202,9 +200,9 @@ const AddHotel = () => {
             />
           </div>
           <div>
-            <label className="block my-2 ">Total Room</label>
+            <label className="block my-1 ">Total Room</label>
             <input
-              className="w-full px-4 py-2 text-gray-900 border rounded-full border-defaultGreen/30"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={formData.totalRoom}
               onChange={(e) =>
                 setFormData({ ...formData, totalRoom: e.target.value })
@@ -213,7 +211,7 @@ const AddHotel = () => {
             />
           </div>
           <div>
-            <label className="block my-2 ">Image 1</label>
+            <label className="block my-1 ">Image 1</label>
             <input
               className="w-full px-4 py-2 text-gray-900 border border-orange-900 rounded-full dark:text-orange-200 dark:border-orange-200"
               type="file"
@@ -223,7 +221,7 @@ const AddHotel = () => {
             />
           </div>
           <div>
-            <label className="block my-2 ">Image 2</label>
+            <label className="block my-1 ">Image 2</label>
             <input
               className="w-full px-4 py-2 text-gray-900 border border-orange-900 rounded-full dark:text-orange-200 dark:border-orange-200"
               type="file"
@@ -233,7 +231,7 @@ const AddHotel = () => {
             />
           </div>
           <div>
-            <label className="block my-2 ">Image 3</label>
+            <label className="block my-1 ">Image 3</label>
             <input
               className="w-full px-4 py-2 text-gray-900 border border-orange-900 rounded-full dark:text-orange-200 dark:border-orange-200"
               type="file"

@@ -3,7 +3,7 @@ import React from "react";
 const Subscribe = () => {
   return (
     <div className=" font-euclidRegular">
-      <section className="absolute top-0 z-50 flex w-full">
+      <section className="absolute top-0 z-20 flex w-full">
         <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6 ">
           <div className="max-w-screen-md mx-auto sm:text-center">
             <h2 className="mb-4 text-3xl tracking-tight text-gray-900 font-euclidBold sm:text-4xl dark:text-white">
