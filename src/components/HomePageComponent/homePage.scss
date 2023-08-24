@@ -1,5 +1,5 @@
 .image-container {
-  animation: move-right-to-left 236s linear infinite;
+  animation: move-right-to-left 26s linear infinite;
 }
 
 .image-container:hover {
@@ -8,39 +8,39 @@
 
 @keyframes move-right-to-left {
   from {
-    transform: translateX(-60%);
+    transform: translateX(-50%);
   }
   to {
     transform: translateX(0%);
   }
 }
 .image-container2 {
-  animation: move-left-to-right 236s linear infinite;
+  animation: move-left2-to-right 26s linear infinite;
 }
 
 .image-container2:hover {
   animation-play-state: paused;
 }
 
-@keyframes move-left-to-right {
+@keyframes move-left2-to-right {
   from {
     transform: translateX(0%);
   }
   to {
-    transform: translateX(-70%);
+    transform: translateX(-50%);
   }
 }
 .image-container3 {
-  animation: move-left-from-right 236s linear infinite;
+  animation: move-left3-from-right 26s linear infinite;
 }
 
 .image-container3:hover {
   animation-play-state: paused;
 }
 
-@keyframes move-left-from-right {
+@keyframes move-left3-from-right {
   from {
-    transform: translateX(-70%);
+    transform: translateX(-50%);
   }
   to {
     transform: translateX(0%);

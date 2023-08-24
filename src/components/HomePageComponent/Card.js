@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import ImageWithUrl from "./ImageWithUrl";
 import { Link } from "react-router-dom";
 
 function Card(hotel) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + 3) % 3);
+  };
+
   return (
     <div className="py-4 mx-auto sm:mx-0">
       <div className="w-full max-w-sm pb-6 min-w-[80vw] sm:min-w-full border-gray-200 rounded-xl dark:bg-transparent dark:border-gray-700">
-        <div className="">
+        <div className=" relative">
           {" "}
-          <Link
-            to={`/hotel/${hotel.item.id}/location/${hotel.item.location.id}`}>
-            <ImageWithUrl url={hotel.item.image2} />
-          </Link>
+          <button
+            className="slider-button prev absolute top-1/2 transform -translate-y-1/2 left-2 bg-gray-800 text-white px-3 py-1 rounded-full opacity-75 hover:opacity-100"
+            onClick={prevImage}>
+            &lt;
+          </button>
+          {/* <Link
+            to={`/hotel/${hotel.item.id}/location/${hotel.item.location.id}`}> */}
+          <ImageWithUrl
+            url={
+              currentImageIndex === 0
+                ? hotel.item.image1
+                : currentImageIndex === 1
+                ? hotel.item.image2
+                : hotel.item.image3
+            }
+          />
+          {/* </Link> */}
+          <button
+            className="slider-button next absolute top-1/2 transform -translate-y-1/2 right-2 bg-gray-800 text-white px-3 py-1 rounded-full opacity-75 hover:opacity-100"
+            onClick={nextImage}>
+            &gt;
+          </button>
         </div>
 
         <div className="pt-5 ">
