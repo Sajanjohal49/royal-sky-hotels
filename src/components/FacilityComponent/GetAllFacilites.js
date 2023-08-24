@@ -26,8 +26,8 @@ const GetAllFacilites = () => {
 
   return (
     // bg-gradient-to-r from-violet-200 to-pink-200
-    <div className="max-w-3xl py-8 mx-auto my-10 text-center dark:bg-orange-200 bg-teal-900 rounded-3xl  text-slate-100 dark:text-slate-900">
-      <Link to="#" className="text-4xl  font-euclidBold ">
+    <div className="max-w-3xl sm:py-8 py-2 px-2 mx-auto sm:my-10 my-2 text-center dark:bg-orange-200 bg-teal-900 rounded-3xl  text-slate-100 dark:text-slate-900">
+      <Link to="#" className="text-3xl sm:text-4xl   font-euclidBold ">
         Here are the Facilities For You!
       </Link>
       <LoadingComponent isLoading={isLoading}>

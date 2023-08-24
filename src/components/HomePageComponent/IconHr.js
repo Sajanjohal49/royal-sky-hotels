@@ -3,10 +3,10 @@ import image from "../images/window-g10248cf68_1920.jpg";
 
 const IconHr = () => {
   return (
-    <div className="mx-2 my-24 text-center lg:mx-24 ">
+    <div className="mx-2 sm:my-24  my-10 text-center lg:mx-24 ">
       <div className="flex items-center justify-center mb-10 max-w-5">
         <div>
-          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+          <h1 className="mb-4 text-4xl font-extrabold    leading-relaxed text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
             <mark className="px-2 rounded dark:bg-orange-200 text-white dark:text-slate-900 bg-teal-900">
               Take Charge
             </mark>{" "}

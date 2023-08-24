@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import AllHotelsTable from "../../DataTables/AllHotelsTable";
-import AddHotel from "./AddHotel";
+
 import Modal from "./Modal";
-import { AiOutlineLogout } from "react-icons/ai";
 
 const AllHotels = () => {
   const [isModalOpen, setModalOpen] = useState(false);

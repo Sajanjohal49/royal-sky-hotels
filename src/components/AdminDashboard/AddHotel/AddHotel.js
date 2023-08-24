@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import baseURL from "../../../apiConfig";
-import AllHotelsTable from "../../DataTables/AllHotelsTable";
 
 const AddHotel = () => {
   const [image1, setImage1] = useState(null);

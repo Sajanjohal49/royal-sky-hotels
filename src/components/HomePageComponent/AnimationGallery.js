@@ -19,10 +19,11 @@ const AnimationGallery = () => {
 
     fetchHotels();
   }, []);
+  console.log(hotelsData.length);
 
   return (
     <div className="">
-      {hotelsData.length > 0 &&
+      {hotelsData.length > 7 &&
         [1, 2, 3].map((containerIndex) => (
           <div
             key={containerIndex}

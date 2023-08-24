@@ -1,5 +1,6 @@
 .image-container {
-  animation: move-right-to-left 26s linear infinite;
+  position: relative;
+  animation: move-right-to-left 126s linear infinite;
 }
 
 .image-container:hover {
@@ -8,14 +9,14 @@
 
 @keyframes move-right-to-left {
   from {
-    transform: translateX(-50%);
+    left: -260%;
   }
   to {
-    transform: translateX(0%);
+    left: 0%;
   }
 }
 .image-container2 {
-  animation: move-left2-to-right 26s linear infinite;
+  animation: move-left2-to-right 126s linear infinite;
 }
 
 .image-container2:hover {
@@ -24,14 +25,14 @@
 
 @keyframes move-left2-to-right {
   from {
-    transform: translateX(0%);
+    left: 0%;
   }
   to {
-    transform: translateX(-50%);
+    left: -300%;
   }
 }
 .image-container3 {
-  animation: move-left3-from-right 26s linear infinite;
+  animation: move-left3-from-right 116s linear infinite;
 }
 
 .image-container3:hover {
@@ -40,10 +41,10 @@
 
 @keyframes move-left3-from-right {
   from {
-    transform: translateX(-50%);
+    left: -260%;
   }
   to {
-    transform: translateX(0%);
+    left: 0%;
   }
 }
 

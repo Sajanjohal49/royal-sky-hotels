@@ -27,7 +27,7 @@ const AnimationCard = ({ url, description }) => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [filename]);
 
   return (
     <div className="w-full py-3">
