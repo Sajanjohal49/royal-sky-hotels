@@ -22,7 +22,7 @@ const AnimationGallery = () => {
   console.log(hotelsData.length);
 
   return (
-    <div className="">
+    <div className=" pb-12">
       {hotelsData.length > 7 &&
         [1, 2, 3].map((containerIndex) => (
           <div

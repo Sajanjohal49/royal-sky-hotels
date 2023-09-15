@@ -2,30 +2,27 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import baseURL from "../../../apiConfig";
-
+import { useQuery } from "react-query";
+const fetchFacilities = async () => {
+  try {
+    const response = await axios.get(`${baseURL}/api/facility/fetch`);
+    return response.data;
+  } catch (error) {
+    console.log("Error fetching facilities", error);
+  }
+};
 const AddFacility = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [facilities, setFacilities] = useState([]);
+  const { data: fetchedFacilities } = useQuery("facilities", fetchFacilities);
 
-  const fetchFacilities = async () => {
-    try {
-      const response = await axios.get(`${baseURL}/api/facility/fetch`);
-      return response.data;
-    } catch (error) {
-      console.log("Error fetching facilities", error);
-    }
-  };
   useEffect(() => {
-    const fetchData = async () => {
-      const fetchedFacilities = await fetchFacilities();
-      if (fetchedFacilities) {
-        setFacilities(fetchedFacilities.facilities);
-      }
-    };
-    fetchData();
-  }, [navigate]);
+    if (fetchedFacilities) {
+      setFacilities(fetchedFacilities.facilities);
+    }
+  }, [fetchedFacilities]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

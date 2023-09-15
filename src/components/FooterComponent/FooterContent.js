@@ -4,7 +4,7 @@ import SajanSignature from "./SajanSignature";
 
 const FooterContent = () => {
   return (
-    <footer className="absolute bottom-0 z-50 w-full font-euclidRegular ">
+    <footer className="absolute bottom-0 z-20 w-full font-euclidRegular ">
       <div className="w-full mx-auto ">
         <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
           <div>

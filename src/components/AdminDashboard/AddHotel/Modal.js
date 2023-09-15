@@ -7,7 +7,7 @@ const Modal = ({ toggleModal, isModalOpen }) => {
       <div
         className={`${
           isModalOpen ? "block" : "hidden"
-        } fixed inset-0 bg-black  opacity-80`}
+        } fixed inset-0 bg-black  z-30  w-screen overflow-hidden`}
         onClick={toggleModal}></div>
       <div
         tabIndex="-1"

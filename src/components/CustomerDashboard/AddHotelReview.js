@@ -26,6 +26,7 @@ const AddHotelReview = () => {
   useEffect(() => {
     setUserId(customer.id);
   }, [customer]);
+  console.log(locationId);
   const handleSubmit = (e) => {
     e.preventDefault();
     try {

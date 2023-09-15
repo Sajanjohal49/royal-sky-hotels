@@ -20,6 +20,7 @@ const VideoAndText = () => {
           autoPlay
           poster={videoPoster}
           onClick={(e) => e.preventDefault()}
+          preload="auto"
           muted></video>
       </div>
     </div>

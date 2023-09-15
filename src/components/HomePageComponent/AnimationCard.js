@@ -4,10 +4,19 @@ import baseURL from "../../apiConfig";
 const AnimationCard = ({ url, description }) => {
   const [imageUrl, setImageUrl] = useState(null);
   const [loading, setLoading] = useState(true);
-
   const filename = url.substring(url.lastIndexOf("/") + 1);
 
+  // Check if the URL is a blob URL (cached)
+  const isBlobUrl = imageUrl && imageUrl.startsWith("blob:");
+
   useEffect(() => {
+    if (isBlobUrl) {
+      // If it's a blob URL, no need to fetch again
+      setLoading(false);
+      return;
+    }
+
+    // Fetch the image only if it's not a cached blob URL
     fetch(`${baseURL}/api/hotel/images/${filename}`)
       .then((response) => {
         if (response.ok) {
@@ -17,7 +26,7 @@ const AnimationCard = ({ url, description }) => {
       })
       .then((blob) => {
         const url = URL.createObjectURL(blob);
-        if (url) {
+        if (url != null) {
           setImageUrl(url);
         }
       })
@@ -27,10 +36,10 @@ const AnimationCard = ({ url, description }) => {
       .finally(() => {
         setLoading(false);
       });
-  }, [filename]);
+  }, [filename, isBlobUrl]);
 
   return (
-    <div className="w-full py-3">
+    <div className="w-full py-2">
       <div className="flex items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
         <div className=" w-[220px] h-[160px] object-cover">
           {loading ? (

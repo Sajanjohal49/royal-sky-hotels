@@ -8,8 +8,8 @@ function Card(hotel) {
   return (
     <div className="py-4 mx-auto sm:mx-0">
       <div className="w-full max-w-sm pb-6 min-w-[80vw] sm:min-w-full border-gray-200 rounded-xl dark:bg-transparent dark:border-gray-700">
-        {/* <Link
-            to={`/hotel/${hotel.item.id}/location/${hotel.item.location.id}`}> */}
+        {/* <Link to={`/hotel/${hotel.item.id}/location/${hotel.item.location.id}`}>
+          {" "} */}
         <ImageWithUrl
           currentImageIndex={currentImageIndex}
           setCurrentImageIndex={setCurrentImageIndex}
@@ -100,7 +100,7 @@ function Card(hotel) {
           <div className="flex items-center justify-between ">
             <Link
               to={`/hotel/${hotel.item.id}/location/${hotel.item.location.id}`}
-              className="px-4 py-2 text-sm font-medium text-center text-gray-800 border rounded-full border-emerald-200 hover:text-gray-200 hover:bg-gray-900 bg-emerald-200 hover:border-gray-900 dark:bg-orange-200 dark:hover:border-emerald-300 dark:hover:bg-transparent hover:border-transparent dark:border-orange-200 dark:hover:text-emerald-200 focus:ring-4 focus:outline-none focus:ring-emerald-300 dark:focus:ring-emerald-800">
+              className="px-4 py-1.5 text-sm font-medium text-center text-gray-100  border-2 bg-teal-900 rounded-full border-teal-900  hover:text-gray-200 hover:bg-gray-900  hover:border-gray-900 dark:bg-orange-200 dark:hover:border-emerald-300 dark:hover:bg-transparent hover:border-transparent dark:border-orange-200 dark:hover:text-emerald-200 focus:ring-4 focus:outline-none focus:ring-teal-600 dark:focus:ring-emerald-800">
               Book Now
             </Link>
             <div className="flex items-baseline text-gray-900 dark:text-white">

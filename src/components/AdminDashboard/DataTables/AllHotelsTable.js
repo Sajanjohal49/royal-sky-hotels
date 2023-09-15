@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
-import baseURL from "../../apiConfig";
+import baseURL from "../../../apiConfig";
 import axios from "axios";
-
+import { useQuery } from "react-query";
+const fetchHotelsInfo = async () => {
+  const response = await axios.get(`${baseURL}/api/hotel/fetch`);
+  return response?.data;
+};
 const AllHotelsTable = () => {
   const [hotels, setHotels] = useState([]);
-  const fetchHotels = async () => {
-    const response = await axios.get(`${baseURL}/api/hotel/fetch`);
-    return response?.data;
-  };
+  const { data: hotelsInfo } = useQuery("hotels", fetchHotelsInfo, {
+    staleTime: 3600000,
+  });
   useEffect(() => {
-    const fetchData = async () => {
-      const fetchedHotels = await fetchHotels();
-      setHotels(fetchedHotels.hotels);
-    };
-    fetchData();
-  }, []);
+    if (hotelsInfo) {
+      setHotels(hotelsInfo.hotels);
+    }
+  }, [hotelsInfo]);
   return (
     <div className="my-2 sm:my-8">
       {" "}
-      {hotels.length > 0 ? (
+      {hotels && hotels.length > 0 ? (
         <div className="relative overflow-x-auto">
           <p className="text-xl  sm:my-6 my-2 text-center sm:text-3xl text-defaultGreen font-euclidSemibold dark:text-orange-200">
             All Hotels

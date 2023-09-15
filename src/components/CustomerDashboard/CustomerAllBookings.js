@@ -15,11 +15,14 @@ const CustomerAllBookings = () => {
       navigate("/");
     }
   }, [navigate, customer]);
+
   const retrieveAllBookings = async () => {
-    const response = await axios.get(
-      `${baseURL}/api/book/hotel/fetch?userId=` + customer.id
-    );
-    return response.data;
+    if (customer?.id != null) {
+      const response = await axios.get(
+        `${baseURL}/api/book/hotel/fetch?userId=` + customer.id
+      );
+      return response.data;
+    }
   };
   useEffect(() => {
     const getAllBookings = async () => {

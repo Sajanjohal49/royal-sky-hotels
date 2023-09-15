@@ -35,7 +35,7 @@ const HotelManagerDashboard = () => {
     };
     getAllBookings();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [hotelManager.hotelId]);
 
   console.log("Bookings:", bookings);
   const getBgColorByStatus = (status) => {
@@ -83,7 +83,7 @@ const HotelManagerDashboard = () => {
                       customer Contact
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      hotel EMail
+                      hotel Email
                     </th>
                     <th scope="col" className="px-6 py-3">
                       status

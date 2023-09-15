@@ -2,11 +2,22 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import baseURL from "../../../apiConfig";
+import { useQuery } from "react-query";
+const fetchAllHotelManagers = async () => {
+  const response = await axios.get(`${baseURL}/api/user/hotel`);
+  return response.data;
+};
+const fetchAllLocations = async () => {
+  const response = await axios.get(`${baseURL}/api/location/fetch`);
+  return response.data;
+};
 
 const AddHotel = () => {
   const [image1, setImage1] = useState(null);
   const [image2, setImage2] = useState(null);
   const [image3, setImage3] = useState(null);
+  const [locations, setLocations] = useState([]);
+  const [hotelManagers, setHotelManagers] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -18,6 +29,11 @@ const AddHotel = () => {
     totalRoom: "",
     userId: "",
   });
+  const { data: allHotelManagersData } = useQuery(
+    "HotelManagers",
+    fetchAllHotelManagers
+  );
+  const { data: locationsData } = useQuery("locations", fetchAllLocations);
 
   const handleImage1Change = (e) => {
     setImage1(e.target.files[0]);
@@ -60,34 +76,17 @@ const AddHotel = () => {
     }
   };
 
-  const [locations, setLocations] = useState([]);
-  const [hotelManagers, setHotelManagers] = useState([]);
   useEffect(() => {
-    const allLocations = async () => {
-      const locationsData = await retrieveAllLocations();
-      if (locationsData) {
-        setLocations(locationsData.locations);
-      }
-    };
-    allLocations();
-  }, []);
-  const retrieveAllLocations = async () => {
-    const response = await axios.get(`${baseURL}/api/location/fetch`);
-    return response.data;
-  };
-  const retreiveAllHotelManagers = async () => {
-    const response = await axios.get(`${baseURL}/api/user/hotel`);
-    return response.data;
-  };
+    if (locationsData) {
+      setLocations(locationsData.locations);
+    }
+  }, [locationsData]);
+
   useEffect(() => {
-    const getAllHotelManagers = async () => {
-      const allHotelManagersData = await retreiveAllHotelManagers();
-      if (allHotelManagersData) {
-        setHotelManagers(allHotelManagersData.users);
-      }
-    };
-    getAllHotelManagers();
-  }, []);
+    if (allHotelManagersData) {
+      setHotelManagers(allHotelManagersData.users);
+    }
+  }, [allHotelManagersData]);
   return (
     <div className=" ">
       <div className="flex items-center justify-center w-full mx-auto  text-gray-900 rounded-3xl dark:text-gray-200">

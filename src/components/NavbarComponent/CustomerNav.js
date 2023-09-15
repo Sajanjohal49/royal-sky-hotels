@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineLogout } from "react-icons/ai";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo2 from "../svg/LogoWhite.svg";
 import logo1 from "../svg/LOGO.svg";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { RiHotelLine } from "react-icons/ri";
 
 const CustomerNav = () => {
-  let navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const navbarRef = useRef(null);
@@ -18,8 +17,7 @@ const CustomerNav = () => {
 
   const customerLogout = () => {
     sessionStorage.removeItem("active-customer");
-    window.location.reload(true);
-    navigate("/");
+    window.location.reload();
   };
   useEffect(() => {
     const handleOutsideClick = (event) => {
