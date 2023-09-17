@@ -4,6 +4,16 @@ import React from "react";
 import BookingStatus from "../AdminDashboard/ViewAllBookings/BookingStatus";
 import { Link, useNavigate } from "react-router-dom";
 import baseURL from "../../apiConfig";
+import { useQuery } from "react-query";
+
+const fetchAllBookings = async (hotelManager) => {
+  if (hotelManager != null) {
+    const response = await axios.get(
+      `${baseURL}/api/book/hotel/fetch/bookings?hotelId=` + hotelManager.hotelId
+    );
+    return response.data;
+  }
+};
 
 const HotelManagerDashboard = () => {
   const navigate = useNavigate();
@@ -12,32 +22,23 @@ const HotelManagerDashboard = () => {
   const hotelManager = JSON.parse(
     sessionStorage.getItem("active-hotelManager")
   );
+  const { data: allBookings } = useQuery(["allBookings", hotelManager], () =>
+    fetchAllBookings(hotelManager)
+  );
+
   useEffect(() => {
     if (!hotelManager) {
       navigate("/");
     }
   }, [navigate, hotelManager]);
-  const retrieveAllBooking = async () => {
-    const response = await axios.get(
-      `${baseURL}/api/book/hotel/fetch/bookings?hotelId=` + hotelManager.hotelId
-    );
-    console.log("find customer Name" + response.data);
-    return response.data;
-  };
-  useEffect(() => {
-    const getAllBookings = async () => {
-      const allbookings = await retrieveAllBooking();
-      if (allbookings) {
-        setBookings(allbookings.bookings);
-        setIsLoading(false);
-      }
-      console.log("find customer Name" + allbookings.bookings);
-    };
-    getAllBookings();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hotelManager.hotelId]);
 
-  console.log("Bookings:", bookings);
+  useEffect(() => {
+    if (allBookings) {
+      setBookings(allBookings.bookings);
+      setIsLoading(false);
+    }
+  }, [allBookings]);
+
   const getBgColorByStatus = (status) => {
     const lowerCaseStatus = status.toLowerCase();
     if (lowerCaseStatus === "confirmed") {
@@ -53,7 +54,10 @@ const HotelManagerDashboard = () => {
     <div className="w-full bg-defaultWhite dark:bg-gray-900">
       <div className="pt-10 pb-20">
         {isLoading ? (
-          <p className="text-2xl"> Please wait!</p>
+          <p className="text-2xl text-center dark:text-gray-200">
+            {" "}
+            Please wait!
+          </p>
         ) : (
           <div className="">
             <h2 className="py-5 text-4xl font-bold text-center text-defaultGreen dark:text-orange-200 ">

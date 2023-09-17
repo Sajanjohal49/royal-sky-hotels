@@ -16,8 +16,8 @@ const HotelManagerNav = () => {
 
   const hotelManagerLogout = () => {
     sessionStorage.removeItem("active-hotelManager");
+    navigate("/home");
     window.location.reload(true);
-    navigate("/");
   };
   useEffect(() => {
     const handleOutsideClick = (event) => {
