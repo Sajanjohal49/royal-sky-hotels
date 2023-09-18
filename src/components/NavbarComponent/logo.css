@@ -14,7 +14,7 @@
   margin-right: 40px;
   overflow: visible;
   stroke: #fff;
-  stroke-width: 2;
-  stroke-linejoin: round;
+  strokewidth: 2;
+  strokelinejoin: round;
   strokelinecap: round;
 }
