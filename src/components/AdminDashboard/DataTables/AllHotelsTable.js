@@ -16,6 +16,16 @@ const AllHotelsTable = () => {
       setHotels(hotelsInfo.hotels);
     }
   }, [hotelsInfo]);
+  const handleDelete = async (itemId) => {
+    try {
+      await axios.delete(`${baseURL}/api/hotel/delete/${itemId}`);
+      setHotels((prevHotels) =>
+        prevHotels.filter((item) => item.id !== itemId)
+      );
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
   return (
     <div className="my-2 sm:my-8">
       {" "}
@@ -51,6 +61,9 @@ const AllHotelsTable = () => {
                 <th scope="col" className="px-6 py-3">
                   Postal Code
                 </th>
+                <th scope="col" className="px-6 py-3">
+                  Action
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -74,6 +87,14 @@ const AllHotelsTable = () => {
                     <td className="px-6 py-4">{item?.location?.city}</td>
                     <td className="px-6 py-4">
                       {item?.postalCode == null ? <>N/A</> : item?.postalCode}
+                    </td>
+                    <td className="px-6 py-4">
+                      {" "}
+                      <button
+                        onClick={() => handleDelete(item.id)}
+                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg ">
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 );

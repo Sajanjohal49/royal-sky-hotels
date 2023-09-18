@@ -18,6 +18,7 @@ const AddHotel = () => {
   const navigate = useNavigate();
   const [image1, setImage1] = useState(null);
   const [image2, setImage2] = useState(null);
+  console.log("IMAGE2", image2);
   const [image3, setImage3] = useState(null);
   const [locations, setLocations] = useState([]);
   const [hotelManagers, setHotelManagers] = useState([]);
@@ -43,7 +44,7 @@ const AddHotel = () => {
   const handleImage1Change = (e) => {
     const image = e.target.files[0];
     new Compressor(image, {
-      quality: 0.8, // You can adjust the quality as needed
+      quality: 0.5, // You can adjust the quality as needed
       success: (compressedResult) => {
         setImage1(compressedResult);
       },
@@ -53,7 +54,7 @@ const AddHotel = () => {
   const handleImage2Change = (e) => {
     const image = e.target.files[0];
     new Compressor(image, {
-      quality: 0.8, // You can adjust the quality as needed
+      quality: 0.5,
       success: (compressedResult) => {
         setImage2(compressedResult);
       },
@@ -63,7 +64,7 @@ const AddHotel = () => {
   const handleImage3Change = (e) => {
     const image = e.target.files[0];
     new Compressor(image, {
-      quality: 0.8, // You can adjust the quality as needed
+      quality: 0.5, // You can adjust the quality as needed
       success: (compressedResult) => {
         setImage3(compressedResult);
       },
