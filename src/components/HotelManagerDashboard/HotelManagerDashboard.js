@@ -150,7 +150,9 @@ const HotelManagerDashboard = () => {
                         <td>
                           {" "}
                           <Link to={`/booking/${item.id}`}>
-                            <button>Edit</button>
+                            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg ">
+                              Edit
+                            </button>
                           </Link>
                         </td>
                         <td>

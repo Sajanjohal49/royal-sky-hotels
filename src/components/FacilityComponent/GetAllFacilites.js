@@ -7,10 +7,12 @@ import { useLoading } from "../utils/customHooks";
 import { useQuery } from "react-query";
 const fetchAllFacilities = async () => {
   const response = await axios.get(`${baseURL}/api/facility/fetch`);
+
   return response.data;
 };
 const GetAllFacilites = () => {
   const [facilities, setFacilities] = useState([]);
+  console.log(facilities);
   const [isLoading, stopLoading, LoadingComponent] = useLoading();
   const { data: allFacilities } = useQuery(
     "allFacilities",
@@ -26,8 +28,7 @@ const GetAllFacilites = () => {
     }
 
     stopLoading();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchAllFacilities, stopLoading]);
 
   return (
     // bg-gradient-to-r from-violet-200 to-pink-200
