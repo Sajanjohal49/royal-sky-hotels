@@ -49,6 +49,20 @@ const HotelManagerDashboard = () => {
       return "bg-red-900/70 dark:bg-red-200";
     }
   };
+  const handleConfirmDelete = async (id) => {
+    try {
+      await axios.delete(`${baseURL}/api/book/hotel/delete/${id}`);
+
+      //  Update the local state to remove the deleted item
+      setBookings((prevBookings) =>
+        prevBookings.filter((item) => item.id !== id)
+      );
+
+      // // Close the delete confirmation modal
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
 
   return (
     <div className="w-full bg-defaultWhite dark:bg-gray-900">
@@ -104,6 +118,9 @@ const HotelManagerDashboard = () => {
                     <th scope="col" className="px-6 py-3">
                       Update booking Status
                     </th>
+                    <th scope="col" className="px-6 py-3">
+                      Action
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -135,6 +152,13 @@ const HotelManagerDashboard = () => {
                           <Link to={`/booking/${item.id}`}>
                             <button>Edit</button>
                           </Link>
+                        </td>
+                        <td>
+                          <button
+                            onClick={() => handleConfirmDelete(item.id)}
+                            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg ">
+                            delete
+                          </button>
                         </td>
                       </tr>
                     );

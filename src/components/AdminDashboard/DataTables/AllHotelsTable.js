@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import baseURL from "../../../apiConfig";
 import axios from "axios";
+
 import { useQuery } from "react-query";
+import DeleteHotelModal from "../../utils/Essentials/DeleteHotelModal";
 const fetchHotelsInfo = async () => {
   const response = await axios.get(`${baseURL}/api/hotel/fetch`);
   return response?.data;
 };
 const AllHotelsTable = () => {
   const [hotels, setHotels] = useState([]);
+  const [showDeleteModal, setShowDeleteModal] = useState(false); // State to control modal visibility
+  const [hotelToDelete, setHotelToDelete] = useState(null);
+
   const { data: hotelsInfo } = useQuery("hotels", fetchHotelsInfo, {
     staleTime: 3600000,
   });
@@ -16,16 +21,34 @@ const AllHotelsTable = () => {
       setHotels(hotelsInfo.hotels);
     }
   }, [hotelsInfo]);
-  const handleDelete = async (itemId) => {
+  const handleDelete = (itemId) => {
+    // Set the hotel to be deleted and show the delete confirmation modal
+    setHotelToDelete(itemId);
+    setShowDeleteModal(true);
+  };
+
+  const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`${baseURL}/api/hotel/delete/${itemId}`);
+      await axios.delete(`${baseURL}/api/hotel/delete/${hotelToDelete}`);
+
+      //  Update the local state to remove the deleted item
       setHotels((prevHotels) =>
-        prevHotels.filter((item) => item.id !== itemId)
+        prevHotels.filter((item) => item.id !== hotelToDelete)
       );
+
+      // // Close the delete confirmation modal
+      setShowDeleteModal(false);
     } catch (error) {
       console.error("Error deleting item:", error);
     }
   };
+
+  const handleCancelDelete = () => {
+    // Clear the hotel to be deleted and close the delete confirmation modal
+    setHotelToDelete(null);
+    setShowDeleteModal(false);
+  };
+
   return (
     <div className="my-2 sm:my-8">
       {" "}
@@ -106,6 +129,12 @@ const AllHotelsTable = () => {
         <p className="text-xl  sm:my-6 my-2 text-center sm:text-3xl text-defaultGreen font-euclidSemibold dark:text-orange-200">
           No Hotel Available
         </p>
+      )}
+      {showDeleteModal && (
+        <DeleteHotelModal
+          handleConfirmDelete={handleConfirmDelete}
+          handleCancelDelete={handleCancelDelete}
+        />
       )}
     </div>
   );

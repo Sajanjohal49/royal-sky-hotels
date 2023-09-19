@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import baseURL from "../../apiConfig";
 
 const LoginPage = () => {
   let navigate = useNavigate();
+  const user = JSON.parse(
+    sessionStorage.getItem(
+      "active-admin" || "active-hotelManager" || "active-customer"
+    )
+  );
+
   const [loginRequest, setLoginRequest] = useState({
     emailId: "",
     password: "",
@@ -54,7 +60,7 @@ const LoginPage = () => {
           sessionStorage.setItem("active-hotelManager", JSON.stringify(res));
         }
 
-        navigate("/home");
+        navigate("/");
         window.location.reload(true);
       })
       .catch((error) => {
@@ -64,6 +70,11 @@ const LoginPage = () => {
         console.log("The Login Error is: ", error);
       });
   };
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   return (
     <div>

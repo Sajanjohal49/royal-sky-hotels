@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import baseURL from "../../apiConfig";
 import { useQuery } from "react-query";
 

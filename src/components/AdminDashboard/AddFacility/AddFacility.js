@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import baseURL from "../../../apiConfig";
 import { useQuery } from "react-query";
+import DeleteFacilityModal from "../../utils/Essentials/DeleteFacilityModal";
 const fetchFacilities = async () => {
   try {
     const response = await axios.get(`${baseURL}/api/facility/fetch`);
@@ -15,7 +16,12 @@ const AddFacility = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+
   const [facilities, setFacilities] = useState([]);
+  const [showDeleteModal, setShowDeleteModal] = useState(false); // State to control modal visibility
+  const [facilityToDelete, setFacilityToDelete] = useState(null);
+
+  const [bodyOverflow, setBodyOverflow] = useState("auto");
   const { data: fetchedFacilities } = useQuery("facilities", fetchFacilities);
 
   useEffect(() => {
@@ -40,6 +46,36 @@ const AddFacility = () => {
     } catch (error) {
       console.log("Error saving Facilty " + error);
     }
+  };
+  const handleDelete = (itemId) => {
+    // Set the hotel to be deleted and show the delete confirmation modal
+    setFacilityToDelete(itemId);
+    setShowDeleteModal(true);
+    setBodyOverflow("hidden");
+  };
+  const handleConfirmDelete = async () => {
+    console.log("fac2", facilityToDelete);
+    try {
+      await axios.delete(`${baseURL}/api/facility/delete/${facilityToDelete}`);
+      console.log(facilityToDelete);
+      //  Update the local state to remove the deleted item
+      setFacilities((prevFacilities) =>
+        prevFacilities.filter((item) => item.id !== facilityToDelete)
+      );
+
+      // // Close the delete confirmation modal
+      setShowDeleteModal(false);
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+    setBodyOverflow("auto");
+  };
+
+  const handleCancelDelete = () => {
+    // Clear the hotel to be deleted and close the delete confirmation modal
+    setFacilityToDelete(null);
+    setShowDeleteModal(false);
+    setBodyOverflow("auto");
   };
   return (
     <div className=" mx-auto  w-full max-w-[700px] ">
@@ -92,6 +128,9 @@ const AddFacility = () => {
                   <th scope="col" className="px-6 py-3">
                     Description
                   </th>
+                  <th scope="col" className="px-6 py-3">
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -108,6 +147,14 @@ const AddFacility = () => {
                       </th>
 
                       <td className="px-6 py-4">{item.description}</td>
+                      <td className="px-6 py-4">
+                        {" "}
+                        <button
+                          onClick={() => handleDelete(item.id)}
+                          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg ">
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   );
                 })}
@@ -120,6 +167,13 @@ const AddFacility = () => {
           </p>
         )}
       </div>
+      {showDeleteModal && (
+        <DeleteFacilityModal
+          handleConfirmDelete={handleConfirmDelete}
+          handleCancelDelete={handleCancelDelete}
+        />
+      )}
+      <style>{`body { overflow: ${bodyOverflow}; }`}</style>
     </div>
   );
 };

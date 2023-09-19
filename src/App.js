@@ -17,7 +17,7 @@ import EditBookingStatus from "./components/HotelManagerDashboard/EditBookingSta
 import AddHotelFacilities from "./components/HotelManagerDashboard/AddHotelFacilities";
 import SkeletonNavbar from "./components/NavbarComponent/Skeleton/SkeletonNavbar";
 import { useEffect, useState } from "react";
-import { useQuery, QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient();
 function App() {
   const [isLoading, setIsLoading] = useState(true);

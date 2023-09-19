@@ -92,7 +92,7 @@ const Hotel = () => {
               <p className="text-2xl font-semibold">{hotel.name}</p>
               <div className="flex text-sm underline capitalize ">
                 <p>{hotel.street},</p>
-                <p>{hotel.pincode},</p>
+                <p>{hotel.pincode}</p>
                 <p> {hotel.location.city}</p>
               </div>
             </div>

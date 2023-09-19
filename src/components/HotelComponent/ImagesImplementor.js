@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import baseURL from "../../apiConfig";
 import { useQuery } from "react-query";
 
