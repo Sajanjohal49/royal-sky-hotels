@@ -36,11 +36,11 @@ const GetAllFacilites = () => {
     <>
       {facilities.length > 0 && (
         <div className="max-w-3xl sm:py-8 py-2 px-2 mx-auto sm:my-10 my-2 text-center dark:bg-orange-200 bg-teal-900 rounded-3xl  text-slate-100 dark:text-slate-900">
-          <Link to="#" className="text-3xl sm:text-4xl   font-euclidBold ">
+          <Link to="#" className="text-3xl sm:text-4xl  px-3  font-euclidBold ">
             Here are the Facilities For You!
           </Link>
           <LoadingComponent isLoading={isLoading}>
-            <div className="grid grid-cols-2 gap-4 mt-4 mx-7">
+            <div className="grid grid-cols-2 gap-4 mt-4 sm:mx-7">
               {facilities.map((facility) => {
                 return (
                   <Link

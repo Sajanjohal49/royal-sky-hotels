@@ -124,7 +124,7 @@ const CustomerNav = () => {
           <div className="px-3 pt-2 space-y-1 text-gray-200 dark:text-gray-900 sm:px-3">
             <Link
               to="/customer/allbookings"
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-white">
+              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
               <span>
                 <RiHotelLine className="mr-2 text-xl " />
               </span>
@@ -134,7 +134,7 @@ const CustomerNav = () => {
           <div className="px-2 pb-3 space-y-1 text-gray-200 sm:px-3 dark:text-gray-900">
             <button
               onClick={customerLogout}
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-white">
+              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
               <AiOutlineLogout className="mr-3 text-lg " />
               <p>Logout</p>
             </button>

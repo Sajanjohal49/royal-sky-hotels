@@ -102,11 +102,9 @@ const Hotel = () => {
         <div className="my-16 ">
           <div className="pr-8 text-gray-700 dark:text-gray-100">
             <div>
-              <p className="my-3 text-xl font-extrabold ">Amenities</p>
               <GetHotelFacilities hotel={hotel} />
             </div>{" "}
             <div className="w-full ">
-              <p className="my-3 text-xl font-extrabold ">Hotel Reviews</p>
               <GetHotelReviews hotel={hotel} />
             </div>
             <AboutSection hotel={hotel} />

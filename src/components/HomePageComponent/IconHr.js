@@ -3,7 +3,7 @@ import image from "../images/window-g10248cf68_1920.jpg";
 
 const IconHr = () => {
   return (
-    <div className="mx-2 sm:my-24  my-10 text-center lg:mx-24 ">
+    <div className="mx-2 sm:my-24  my-10 text-center lg:mx-24 px-1 ">
       <div className="flex items-center justify-center mb-10 max-w-5">
         <div>
           <h1 className="mb-4 text-4xl font-extrabold    leading-relaxed text-gray-900 md:text-4xl lg:text-5xl dark:text-white">

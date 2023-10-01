@@ -117,7 +117,7 @@ const AdminNav = () => {
           <div className="px-3 pt-2 space-y-1 text-gray-200 dark:text-gray-900 sm:px-3">
             <Link
               to="/admin/dashboard"
-              className="flex px-4 py-2 text-base font-medium rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-900 hover:text-white">
+              className="flex px-4 py-2 text-base font-medium rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-900 hover:text-gray-900">
               <p>Go to Dashboard</p>
               <RiShareForwardFill className="ml-2 text-lg " />
             </Link>
@@ -125,7 +125,7 @@ const AdminNav = () => {
           <div className="px-2 pb-3 space-y-1 text-gray-200 sm:px-3 dark:text-gray-900">
             <button
               onClick={adminLogout}
-              className="flex items-center justify-center px-4 py-2 text-base font-medium rounded-full hover:bg-gray-700 dark:hover:bg-gray-900 hover:text-white">
+              className="flex items-center justify-center px-4 py-2 text-base font-medium rounded-full hover:bg-gray-700 dark:hover:bg-gray-900 hover:text-gray-900">
               <p>Logout</p>
               <AiOutlineLogout className="ml-2 text-lg " />
             </button>

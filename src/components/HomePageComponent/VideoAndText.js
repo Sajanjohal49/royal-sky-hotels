@@ -17,6 +17,7 @@ const VideoAndText = () => {
           src={myVideo}
           ref={videoRef}
           controls={false}
+          controlsList="nodownload nofullscreen"
           autoPlay
           poster={videoPoster}
           onClick={(e) => e.preventDefault()}

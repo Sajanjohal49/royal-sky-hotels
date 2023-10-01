@@ -56,9 +56,7 @@ function HotelsGrid() {
     <div className="px-2 sm:px-10   ">
       <LoadingComponent isLoading={isLoading}>
         {hotels.length === 0 ? (
-          <div className="text-center py-4 text-gray-500">
-            No hotels available
-          </div>
+          <div className=""></div>
         ) : (
           <div className="grid items-center justify-center grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:px-10">
             {hotels.map((hotel, index) => {
