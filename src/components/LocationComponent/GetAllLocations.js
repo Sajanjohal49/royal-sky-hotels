@@ -22,8 +22,8 @@ const GetAllLocations = () => {
   useEffect(() => {
     if (data && data.length > 0) {
       setFetchedLocations(data);
+      stopLoading();
     }
-    stopLoading();
   }, [data, stopLoading]);
 
   return (
