@@ -2,12 +2,27 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import baseURL from "../../../apiConfig";
-import AllHotelsTable from "../../DataTables/AllHotelsTable";
+import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
+import Compressor from "compressorjs";
+const fetchAllHotelManagers = async () => {
+  const response = await axios.get(`${baseURL}/api/user/hotel`);
+  return response.data;
+};
+const fetchAllLocations = async () => {
+  const response = await axios.get(`${baseURL}/api/location/fetch`);
+  return response.data;
+};
 
 const AddHotel = () => {
+  const navigate = useNavigate();
   const [image1, setImage1] = useState(null);
   const [image2, setImage2] = useState(null);
+  console.log("IMAGE2", image2);
   const [image3, setImage3] = useState(null);
+  const [locations, setLocations] = useState([]);
+  const [hotelManagers, setHotelManagers] = useState([]);
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -19,17 +34,41 @@ const AddHotel = () => {
     totalRoom: "",
     userId: "",
   });
+  const { data: allHotelManagersData } = useQuery(
+    "HotelManagers",
+    fetchAllHotelManagers
+  );
+
+  const { data: locationsData } = useQuery("locations", fetchAllLocations);
 
   const handleImage1Change = (e) => {
-    setImage1(e.target.files[0]);
+    const image = e.target.files[0];
+    new Compressor(image, {
+      quality: 0.5, // You can adjust the quality as needed
+      success: (compressedResult) => {
+        setImage1(compressedResult);
+      },
+    });
   };
 
   const handleImage2Change = (e) => {
-    setImage2(e.target.files[0]);
+    const image = e.target.files[0];
+    new Compressor(image, {
+      quality: 0.5,
+      success: (compressedResult) => {
+        setImage2(compressedResult);
+      },
+    });
   };
 
   const handleImage3Change = (e) => {
-    setImage3(e.target.files[0]);
+    const image = e.target.files[0];
+    new Compressor(image, {
+      quality: 0.5, // You can adjust the quality as needed
+      success: (compressedResult) => {
+        setImage3(compressedResult);
+      },
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -55,40 +94,28 @@ const AddHotel = () => {
         formDataToSend
       );
 
-      console.log("addHotel " + response.data); // Handle the response as needed
+      console.log("addHotel " + response.data);
+      if (response.status === 200) {
+        navigate("/"); // Replace "/" with the actual URL of your homepage
+      }
+
+      // Handle the response as needed
     } catch (error) {
       console.error(error);
     }
   };
 
-  const [locations, setLocations] = useState([]);
-  const [hotelManagers, setHotelManagers] = useState([]);
   useEffect(() => {
-    const allLocations = async () => {
-      const locationsData = await retrieveAllLocations();
-      if (locationsData) {
-        setLocations(locationsData.locations);
-      }
-    };
-    allLocations();
-  }, []);
-  const retrieveAllLocations = async () => {
-    const response = await axios.get(`${baseURL}/api/location/fetch`);
-    return response.data;
-  };
-  const retreiveAllHotelManagers = async () => {
-    const response = await axios.get(`${baseURL}/api/user/hotel`);
-    return response.data;
-  };
+    if (locationsData) {
+      setLocations(locationsData.locations);
+    }
+  }, [locationsData]);
+
   useEffect(() => {
-    const getAllHotelManagers = async () => {
-      const allHotelManagersData = await retreiveAllHotelManagers();
-      if (allHotelManagersData) {
-        setHotelManagers(allHotelManagersData.users);
-      }
-    };
-    getAllHotelManagers();
-  }, []);
+    if (allHotelManagersData) {
+      setHotelManagers(allHotelManagersData.users);
+    }
+  }, [allHotelManagersData]);
   return (
     <div className=" ">
       <div className="flex items-center justify-center w-full mx-auto  text-gray-900 rounded-3xl dark:text-gray-200">

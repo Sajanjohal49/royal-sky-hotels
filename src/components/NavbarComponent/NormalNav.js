@@ -46,11 +46,10 @@ const NormalNav = () => {
             <div className="absolute hidden right-20 md:block">
               <div className="flex items-baseline pt-3 ml-10 space-x-4 text-gray-900 dark:text-gray-200">
                 <NavLink
-                  exact
                   to="/"
                   className={`px-4 py-2 font-medium rounded-full hover:bg-gray-900 dark:hover:text-gray-900 dark:hover:bg-orange-200 hover:text-white ${
                     location.pathname === "/"
-                      ? "bg-defaultGreen text-white dark:bg-emerald-200 dark:text-gray-900"
+                      ? "bg-defaultGreen text-white  dark:bg-emerald-200 dark:text-gray-900"
                       : ""
                   }`}>
                   Home
@@ -68,8 +67,8 @@ const NormalNav = () => {
                 </NavLink>
                 <NavLink
                   to="/allHotels"
-                  activeClassName="bg-gray-900 dark:text-gray-900 dark:bg-orange-200 text-white"
-                  className={`px-4 py-2 font-medium rounded-full hover:bg-gray-900 dark:hover:text-gray-900 dark:hover:bg-orange-200 hover:text-white ${
+                  activeclassname="bg-gray-900 dark:text-gray-900 dark:bg-orange-200 text-white"
+                  className={`px-4 py-2 font-medium rounded-full hover:bg-gray-900  dark:hover:text-gray-900 dark:hover:bg-orange-200 hover:text-white ${
                     location.pathname === "/allHotels"
                       ? "bg-defaultGreen text-white dark:bg-emerald-200 dark:text-gray-900"
                       : ""
@@ -79,7 +78,7 @@ const NormalNav = () => {
                 </NavLink>
                 <NavLink
                   to="/login"
-                  activeClassName="ring-orange-100"
+                  activeclassname="ring-orange-100"
                   className={`px-4 py-2 font-medium dark:border-emerald-300 border border-gray-900 hover:border-orange-200 rounded-full hover:bg-gray-900 dark:hover:text-gray-900 dark:hover:bg-orange-200 hover:text-white   ${
                     location.pathname === "/login"
                       ? "bg-defaultGreen text-white dark:bg-emerald-200 dark:text-gray-900"
@@ -90,7 +89,7 @@ const NormalNav = () => {
                 </NavLink>
                 <NavLink
                   to="/customer/register"
-                  activeClassName="ring-emerald-200"
+                  activeclassname="ring-emerald-200"
                   className={`px-4 py-2 font-medium dark:border-emerald-300 border border-gray-900 hover:border-orange-200 rounded-full hover:bg-gray-900 dark:hover:text-gray-900 dark:hover:bg-orange-200 hover:text-white   ${
                     location.pathname === "/customer/register"
                       ? "bg-defaultGreen text-white dark:bg-emerald-200 dark:text-gray-900"
@@ -149,36 +148,35 @@ const NormalNav = () => {
         <div className="absolute z-20 origin-top transform text-defaultWhite bg-defaultGreen right-2 dark:bg-orange-100 w-fit rounded-3xl top-20 md:hidden">
           <div className="px-3 pt-2 space-y-1 text-gray-200 dark:text-gray-900 sm:px-3">
             <NavLink
-              exact
               to="/"
-              activeClassName="bg-gray-700 text-white"
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-white">
+              activeclassname="bg-gray-700 text-white"
+              className="flex items-center justify-center px-4 py-2 text-base  font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
               Home
             </NavLink>
             <NavLink
               to="/gallery"
-              activeClassName="bg-gray-700 text-white"
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-white">
+              activeclassname="bg-gray-700 text-white"
+              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
               Gallery
             </NavLink>
             <NavLink
               to="/allHotels"
-              activeClassName="bg-gray-700 text-white"
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-white">
+              activeclassname="bg-gray-700 text-white"
+              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
               All Hotels
             </NavLink>
           </div>
           <div className="px-2 pb-3 space-y-1 text-gray-200 sm:px-3 dark:text-gray-900">
             <NavLink
               to="/login"
-              activeClassName="bg-gray-700 text-white"
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-white">
+              activeclassname="bg-gray-700 text-white"
+              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
               Sign In
             </NavLink>
             <NavLink
               to="/customer/register"
-              activeClassName="bg-gray-700 text-white"
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-white">
+              activeclassname="bg-gray-700 text-white"
+              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
               Sign Up
             </NavLink>
           </div>

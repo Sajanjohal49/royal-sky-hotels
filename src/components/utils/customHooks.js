@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaSpinner } from "react-icons/fa";
 
 export const useLoading = () => {
   const [isLoading, setLoading] = useState(true);
@@ -8,7 +9,7 @@ export const useLoading = () => {
     if (isLoading) {
       return (
         <div role="status" className=" flex items-center justify-center m-4">
-          <p className=" dark:text-white">Loading...</p>
+          <FaSpinner className="animate-spin text-4xl text-gray-500" />
         </div>
       );
     }

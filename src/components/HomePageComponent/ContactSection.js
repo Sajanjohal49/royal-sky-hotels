@@ -20,7 +20,7 @@ const ContactSection = () => {
             </p>
           </div>
           <div className="flex flex-wrap">
-            <form action="#" className="max-w-3xl mx-10 space-y-8 ">
+            <form action="#" className="max-w-3xl sm:mx-10 space-y-8 ">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label

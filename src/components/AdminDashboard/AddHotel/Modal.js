@@ -7,7 +7,7 @@ const Modal = ({ toggleModal, isModalOpen }) => {
       <div
         className={`${
           isModalOpen ? "block" : "hidden"
-        } fixed inset-0 bg-black  opacity-80`}
+        } fixed inset-0 bg-black  z-30  w-screen overflow-hidden`}
         onClick={toggleModal}></div>
       <div
         tabIndex="-1"
@@ -16,7 +16,7 @@ const Modal = ({ toggleModal, isModalOpen }) => {
           isModalOpen ? "block" : "hidden"
         } w-full p-10 overflow-x-hidden overflow-y-auto  md:inset-0 h-[calc(100%)]  max-h-full  max-w-[1100px] mx-auto `}>
         <div className="  dark:bg-gray-800 bg-gray-200 rounded-xl">
-          <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+          <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
             <h3 className="text-xl text-center sm:text-3xl text-defaultGreen font-euclidSemibold dark:text-orange-200">
               Add Hotel
             </h3>
@@ -34,8 +34,8 @@ const Modal = ({ toggleModal, isModalOpen }) => {
                 <path
                   stroke="currentColor"
                   strokeLinecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                 />
               </svg>

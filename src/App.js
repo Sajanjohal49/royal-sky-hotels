@@ -17,7 +17,8 @@ import EditBookingStatus from "./components/HotelManagerDashboard/EditBookingSta
 import AddHotelFacilities from "./components/HotelManagerDashboard/AddHotelFacilities";
 import SkeletonNavbar from "./components/NavbarComponent/Skeleton/SkeletonNavbar";
 import { useEffect, useState } from "react";
-
+import { QueryClient, QueryClientProvider } from "react-query";
+const queryClient = new QueryClient();
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -32,51 +33,53 @@ function App() {
   }
   return (
     <Router>
-      <ScrollToTop />
-      <Routes>
-        <Route element={<PageLayout />}>
-          <Route path="/" element={<RoleHomePage />} />
-          <Route path="/home" element={<RoleHomePage />} />
-          <Route
-            path="/home/hotel/location/allHotels"
-            element={<RoleHomePage />}
-          />
-          <Route
-            path="/home/hotel/location/:locationId/:locationName"
-            element={<RoleHomePage />}
-          />
-          <Route
-            path="/hotel/:hotelId/location/:locationId"
-            element={<Hotel />}
-          />
-          <Route path="/admin/dashboard" element={<AdminDashborard />} />
-          <Route
-            path="/hotelManager/allbookings"
-            element={<HotelManagerDashboard />}
-          />
-          <Route
-            path="/customer/allbookings"
-            element={<CustomerAllBookings />}
-          />
-          <Route path="/gallery" element={<GallleryPage />} />
+      <QueryClientProvider client={queryClient}>
+        <ScrollToTop />
+        <Routes>
+          <Route element={<PageLayout />}>
+            <Route path="/" element={<RoleHomePage />} />
+            <Route path="/home" element={<RoleHomePage />} />
+            <Route
+              path="/home/hotel/location/allHotels"
+              element={<RoleHomePage />}
+            />
+            <Route
+              path="/home/hotel/location/:locationId/:locationName"
+              element={<RoleHomePage />}
+            />
+            <Route
+              path="/hotel/:hotelId/location/:locationId"
+              element={<Hotel />}
+            />
+            <Route path="/admin/dashboard" element={<AdminDashborard />} />
+            <Route
+              path="/hotelManager/allbookings"
+              element={<HotelManagerDashboard />}
+            />
+            <Route
+              path="/customer/allbookings"
+              element={<CustomerAllBookings />}
+            />
+            <Route path="/gallery" element={<GallleryPage />} />
 
-          <Route path="/allHotels" element={<AllHotelsPage />} />
+            <Route path="/allHotels" element={<AllHotelsPage />} />
 
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/customer/register" element={<UserRegister />} />
-          <Route
-            path="/hotel/:hotelId/customer/:userId/review"
-            element={<AddHotelReview />}
-          />
-          <Route path="/hotelManager/register" element={<UserRegister />} />
-          <Route path="/admin/register" element={<UserRegister />} />
-          <Route path="/booking/:bookingId" element={<EditBookingStatus />} />
-          <Route
-            path="/hotel/:hotelId/location/:locationId/add/facility"
-            element={<AddHotelFacilities />}
-          />
-        </Route>
-      </Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/customer/register" element={<UserRegister />} />
+            <Route
+              path="/hotel/:hotelId/location/:locationId/customer/:userId/review"
+              element={<AddHotelReview />}
+            />
+            <Route path="/hotelManager/register" element={<UserRegister />} />
+            <Route path="/admin/register" element={<UserRegister />} />
+            <Route path="/booking/:bookingId" element={<EditBookingStatus />} />
+            <Route
+              path="/hotel/:hotelId/location/:locationId/add/facility"
+              element={<AddHotelFacilities />}
+            />
+          </Route>
+        </Routes>
+      </QueryClientProvider>
     </Router>
   );
 }

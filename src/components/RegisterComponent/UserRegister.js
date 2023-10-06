@@ -67,7 +67,7 @@ const UserRegister = () => {
           } else if (res.role === "Customer") {
             sessionStorage.setItem("active-customer", JSON.stringify(res));
           } else if (res.role === "Hotel") {
-            sessionStorage.setItem("active-hotel", JSON.stringify(res));
+            sessionStorage.setItem("active-hotelManager", JSON.stringify(res));
           }
 
           navigate("/home");

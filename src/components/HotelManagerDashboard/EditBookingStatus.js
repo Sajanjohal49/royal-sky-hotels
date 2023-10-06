@@ -58,7 +58,7 @@ const EditBookingStatus = () => {
   };
 
   return (
-    <div className=" font-euclidRegular max-w-[1100px] mx-auto flex justify-center w-full dark:bg-gray-900">
+    <div className=" font-euclidRegular  mx-auto flex justify-center w-full dark:bg-gray-900">
       {/* <p>Update the Status {bookingId}</p> */}
       {/* <p>{hotelManager && hotelManager.Id}</p> */}
       {bookings.map((booking) => {

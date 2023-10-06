@@ -5,10 +5,10 @@ import "./homePage.scss";
 import HotelsGrid from "./HotelsGrid";
 import IconHr from "./IconHr";
 import ContactSection from "./ContactSection";
-import AnimationGallery from "./AnimationGallery";
-import GetAllLocations from "../LocationComponent/GetAllLocations";
+
 import GetAllFacilites from "../FacilityComponent/GetAllFacilites";
 import VideoAndText from "./VideoAndText";
+import GetAllLocations from "../LocationComponent/GetAllLocations";
 
 function HomePage() {
   return (
@@ -20,7 +20,7 @@ function HomePage() {
         <GetAllFacilites />
         <IconHr />
 
-        <AnimationGallery />
+        {/* <AnimationGallery /> */}
         <ContactSection />
       </div>
     </div>

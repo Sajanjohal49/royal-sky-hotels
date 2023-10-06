@@ -4,16 +4,16 @@ import ImageWithUrl from "../HomePageComponent/ImageWithUrl";
 
 function HotelSuggestedCard(hotel) {
   return (
-    <div className=" py-4 mx-auto sm:mx-0 max-w-[20rem]">
-      <div className="w-full max-w-sm pb-6 bg-white border-gray-200 g rounded-xl dark:bg-transparent dark:border-gray-700">
+    <div className=" py-4 mx-auto sm:mx-0 max-w-[20rem] bg-defaultWhite">
+      <div className="w-full max-w-sm pb-6 bg-white border-gray-200  rounded-xl dark:bg-transparent dark:border-gray-700">
         <Link to={`/hotel/${hotel.item.id}/location/${hotel.item.location.id}`}>
           <div className="">
             {" "}
             <ImageWithUrl url={hotel.item.image2} />
           </div>
 
-          <div className="pt-5 ">
-            <h5 className="font-semibold tracking-tight text-gray-900 capitalize te dark:text-white">
+          <div className="pt-5 bg-defaultWhite ">
+            <h5 className="font-semibold tracking-tight text-gray-900 capitalize dark:text-white">
               <Link
                 to={`/hotel/${hotel.item.id}/location/${hotel.item.location.id}`}>
                 <span className="c ">{hotel.item.name}</span>

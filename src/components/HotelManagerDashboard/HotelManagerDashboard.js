@@ -4,6 +4,16 @@ import React from "react";
 import BookingStatus from "../AdminDashboard/ViewAllBookings/BookingStatus";
 import { Link, useNavigate } from "react-router-dom";
 import baseURL from "../../apiConfig";
+import { useQuery } from "react-query";
+
+const fetchAllBookings = async (hotelManager) => {
+  if (hotelManager != null) {
+    const response = await axios.get(
+      `${baseURL}/api/book/hotel/fetch/bookings?hotelId=` + hotelManager.hotelId
+    );
+    return response.data;
+  }
+};
 
 const HotelManagerDashboard = () => {
   const navigate = useNavigate();
@@ -12,32 +22,23 @@ const HotelManagerDashboard = () => {
   const hotelManager = JSON.parse(
     sessionStorage.getItem("active-hotelManager")
   );
+  const { data: allBookings } = useQuery(["allBookings", hotelManager], () =>
+    fetchAllBookings(hotelManager)
+  );
+
   useEffect(() => {
     if (!hotelManager) {
       navigate("/");
     }
   }, [navigate, hotelManager]);
-  const retrieveAllBooking = async () => {
-    const response = await axios.get(
-      `${baseURL}/api/book/hotel/fetch/bookings?hotelId=` + hotelManager.hotelId
-    );
-    console.log("find customer Name" + response.data);
-    return response.data;
-  };
-  useEffect(() => {
-    const getAllBookings = async () => {
-      const allbookings = await retrieveAllBooking();
-      if (allbookings) {
-        setBookings(allbookings.bookings);
-        setIsLoading(false);
-      }
-      console.log("find customer Name" + allbookings.bookings);
-    };
-    getAllBookings();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
-  console.log("Bookings:", bookings);
+  useEffect(() => {
+    if (allBookings) {
+      setBookings(allBookings.bookings);
+      setIsLoading(false);
+    }
+  }, [allBookings]);
+
   const getBgColorByStatus = (status) => {
     const lowerCaseStatus = status.toLowerCase();
     if (lowerCaseStatus === "confirmed") {
@@ -48,12 +49,29 @@ const HotelManagerDashboard = () => {
       return "bg-red-900/70 dark:bg-red-200";
     }
   };
+  const handleConfirmDelete = async (id) => {
+    try {
+      await axios.delete(`${baseURL}/api/book/hotel/delete/${id}`);
+
+      //  Update the local state to remove the deleted item
+      setBookings((prevBookings) =>
+        prevBookings.filter((item) => item.id !== id)
+      );
+
+      // // Close the delete confirmation modal
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
 
   return (
     <div className="w-full bg-defaultWhite dark:bg-gray-900">
       <div className="pt-10 pb-20">
         {isLoading ? (
-          <p className="text-2xl"> Please wait!</p>
+          <p className="text-2xl text-center dark:text-gray-200">
+            {" "}
+            Please wait!
+          </p>
         ) : (
           <div className="">
             <h2 className="py-5 text-4xl font-bold text-center text-defaultGreen dark:text-orange-200 ">
@@ -83,7 +101,7 @@ const HotelManagerDashboard = () => {
                       customer Contact
                     </th>
                     <th scope="col" className="px-6 py-3">
-                      hotel EMail
+                      hotel Email
                     </th>
                     <th scope="col" className="px-6 py-3">
                       status
@@ -99,6 +117,9 @@ const HotelManagerDashboard = () => {
                     </th>
                     <th scope="col" className="px-6 py-3">
                       Update booking Status
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Action
                     </th>
                   </tr>
                 </thead>
@@ -129,8 +150,17 @@ const HotelManagerDashboard = () => {
                         <td>
                           {" "}
                           <Link to={`/booking/${item.id}`}>
-                            <button>Edit</button>
+                            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg ">
+                              Edit
+                            </button>
                           </Link>
+                        </td>
+                        <td>
+                          <button
+                            onClick={() => handleConfirmDelete(item.id)}
+                            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg ">
+                            delete
+                          </button>
                         </td>
                       </tr>
                     );

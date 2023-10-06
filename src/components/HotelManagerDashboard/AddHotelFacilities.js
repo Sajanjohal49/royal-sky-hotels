@@ -67,25 +67,17 @@ const AddHotelFacilities = () => {
     window.location.reload(true);
   };
 
-  const deleteHotelFacility = (f) => {
-    let index = hoteFacilities.indexOf(f);
-    hoteFacilities.slice(index);
-    setHoteFacilities(hoteFacilities);
-  };
-
   return (
     <div>
-      <div className="mt-2 d-flex aligns-items-center justify-content-center">
-        <div
-          className="card form-card border-color custom-bg"
-          style={{ width: "45rem" }}>
+      <div className=" font-euclidRegular   bg-defaultWhite dark:bg-slate-900 dark:text-gray-200 flex justify-center items-center ">
+        <div className=" max-w-5xl ">
           <div className="text-center card-header bg-color custom-bg-text">
-            <h3 className="card-title">Add Facility</h3>
+            <p className=" font-euclidBold text-2xl  ">Add Facility</p>
           </div>
           <div className="card-body text-color">
             <form onSubmit={saveHotelFacility}>
               <div className="mb-3">
-                <label className="form-label">
+                <label className=" block  py-2 form-label">
                   <b>Facility</b>
                 </label>
 
@@ -94,8 +86,10 @@ const AddHotelFacilities = () => {
                   onChange={(e) => {
                     setFacilityId(e.target.value);
                   }}
-                  className="form-control">
-                  <option value="">Select Facility</option>
+                  className="dark:text-gray-600 py-1 px-1 rounded-lg dark:bg-gray-300">
+                  <option value="" className="dark:text-gray-600">
+                    Select Facility
+                  </option>
 
                   {allFacilities.map((facility) => {
                     return (
@@ -111,43 +105,34 @@ const AddHotelFacilities = () => {
               <div className="mt-3 d-flex justify-content-center">
                 <input
                   type="submit"
-                  className="btn bg-color custom-bg-text"
+                  className="bg-teal-800 hover:bg-teal-900 dark:bg-orange-300 dark:text-gray-700 text-white font-bold py-1.5 px-4 rounded-lg "
                   value="Add Facility"
                 />
               </div>
             </form>
 
-            <div className="mt-5 text-center">
+            <div className="my-5 text-center">
               <h3>Selected Hotel Facilities</h3>
             </div>
 
-            <div className="mt-2 table-responsive">
-              <table className="table text-center table-hover custom-bg-text">
-                <thead className="bg-color table-bordered border-color">
+            <div className="my-4 ">
+              <table className="min-w-full">
+                <thead>
                   <tr>
-                    <th scope="col">Facility Name</th>
-                    <th scope="col">Facility Description</th>
-                    <th scope="col">Action</th>
+                    <th className="px-6 py-3 bg-gray-800 text-white">
+                      Facility Name
+                    </th>
+                    <th className="px-6 py-3 bg-gray-800 text-white">
+                      Facility Description
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="text-color">
                   {hoteFacilities.map((f) => {
                     return (
-                      <tr key={f.id}>
-                        <td>
-                          <b>{f.name}</b>
-                        </td>
-                        <td>
-                          <b>{f.description}</b>
-                        </td>
-
-                        <td>
-                          <button
-                            className="btn bg-color custom-bg btn-sm"
-                            onClick={() => deleteHotelFacility(f)}>
-                            Delete
-                          </button>
-                        </td>
+                      <tr key={f.id} className="border-t">
+                        <td className="px-6 py-4">{f.name}</td>
+                        <td className="px-6 py-4">{f.description}</td>
                       </tr>
                     );
                   })}

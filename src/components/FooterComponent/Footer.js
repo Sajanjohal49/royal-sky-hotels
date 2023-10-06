@@ -12,10 +12,10 @@ function Footer() {
   return (
     <footer className="relative min-h-[890px]  sm:min-h-[780px]">
       <div className="items-center justify-center w-full h-full">
-        <div className="absolute bottom-0 inset-0 bg-gradient-to-t  dark:from-black from-gray-100 from-30% z-50 via-transparent via-70%   to-transparent to-90%"></div>
+        <div className="absolute bottom-0 inset-0 bg-gradient-to-t  dark:from-black from-gray-100 from-30% z-10 via-transparent via-70%   to-transparent to-90%"></div>
 
         <video
-          className="z-10 object-cover w-full h-full"
+          className="-z-20 object-cover w-full h-full"
           ref={videoRef}
           src={video}
           autoPlay

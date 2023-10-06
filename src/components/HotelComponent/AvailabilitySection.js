@@ -12,7 +12,7 @@ const AvailabilitySection = ({ hotel }) => {
           <span className="ml-2 font-bold ">{hotel.totalRoom}</span>{" "}
         </p>
       </div>
-      <div className="w-full h-0.5 bg-gray-300 my-5"></div>
+      <div className="w-full h-0.5 bg-gray-300/80 my-2 sm:my-5"></div>
     </div>
   );
 };

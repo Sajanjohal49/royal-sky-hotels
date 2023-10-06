@@ -6,7 +6,7 @@ import "./AdminDashboard.css";
 import AddLocation from "./AddLocation/AddLocation";
 import AddFacility from "./AddFacility/AddFacility";
 import RegisterHotelManager from "./RegisterHotelManager/RegisterHotelManager";
-import AddHotel from "./AddHotel/AddHotel";
+
 import ViewAllBookings from "./ViewAllBookings/ViewAllBookings";
 import { MdOutlineAddLocationAlt } from "react-icons/md";
 import { GiArchiveRegister } from "react-icons/gi";

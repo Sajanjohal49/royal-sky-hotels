@@ -1,73 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./homePage.scss";
 import AnimationCard from "./AnimationCard";
-
-import image1 from "../images/ciudad-maderas-MXbM1NrRqtI-unsplash.jpg";
-
-import image2 from "../images/apartment-1822409_1920.jpg";
-
-import image3 from "../images/apartment-2558277_1920.jpg";
-
-import image4 from "../images/bed-1834327_1920.jpg";
-
-import image5 from "../images/bedroom-gc90a1b79f_1920.jpg";
-
-import image6 from "../images/hotel-1979406_1920.jpg";
-
-import image7 from "../images/room-4768551_1920.jpg";
-
-import image8 from "../images/wall-416060_1280.jpg";
-
-import image9 from "../images/wall-panel-416041_1280.jpg";
-
-import image10 from "../images/lifestyle-g796bdb6ff_1920.jpg";
+import baseURL from "../../apiConfig";
+import axios from "axios";
 
 const AnimationGallery = () => {
+  const [hotelsData, setHotelsData] = useState([]);
+
+  useEffect(() => {
+    const fetchHotels = async () => {
+      try {
+        const response = await axios.get(`${baseURL}/api/hotel/fetch`);
+        setHotelsData(response.data.hotels);
+      } catch (error) {
+        console.error("Error fetching hotels:", error);
+      }
+    };
+
+    fetchHotels();
+  }, []);
+  console.log(hotelsData.length);
+
   return (
-    <div className="py-20 ">
-      <div className="overflow-hidden w-[7000px] image-container ">
-        <div className="flex items-center gap-6 fullLine ">
-          <AnimationCard cardImage={image1} />
-          <AnimationCard cardImage={image2} />{" "}
-          <AnimationCard cardImage={image3} />{" "}
-          <AnimationCard cardImage={image4} />{" "}
-          <AnimationCard cardImage={image5} />{" "}
-          <AnimationCard cardImage={image6} />
-          <AnimationCard cardImage={image7} />
-          <AnimationCard cardImage={image8} />
-          <AnimationCard cardImage={image9} />
-          <AnimationCard cardImage={image10} />
-        </div>
-      </div>
-      <div className="overflow-hidden w-[7000px] image-container2 py-5">
-        <div className="flex items-center gap-6 fullLine ">
-          {" "}
-          <AnimationCard cardImage={image10} />
-          <AnimationCard cardImage={image9} />
-          <AnimationCard cardImage={image8} />
-          <AnimationCard cardImage={image7} />
-          <AnimationCard cardImage={image6} />
-          <AnimationCard cardImage={image5} />
-          <AnimationCard cardImage={image4} />{" "}
-          <AnimationCard cardImage={image3} />{" "}
-          <AnimationCard cardImage={image2} />{" "}
-          <AnimationCard cardImage={image1} />{" "}
-        </div>
-      </div>
-      <div className="overflow-hidden w-[7000px] image-container3 ">
-        <div className="flex items-center gap-6 fullLine ">
-          <AnimationCard cardImage={image8} />
-          <AnimationCard cardImage={image9} />
-          <AnimationCard cardImage={image10} />
-          <AnimationCard cardImage={image4} />{" "}
-          <AnimationCard cardImage={image5} />{" "}
-          <AnimationCard cardImage={image6} />
-          <AnimationCard cardImage={image7} />
-          <AnimationCard cardImage={image1} />
-          <AnimationCard cardImage={image2} />{" "}
-          <AnimationCard cardImage={image3} />{" "}
-        </div>
-      </div>
+    <div className=" pb-12">
+      {hotelsData.length > 7 &&
+        [1, 2, 3].map((containerIndex) => (
+          <div
+            key={containerIndex}
+            className={`image-container image-container${containerIndex} overflow-hidden w-[7000px] `}>
+            <div className="flex items-center gap-6 fullLine">
+              {hotelsData.map((item, index) => {
+                const { image1, image2, image3, description } = item;
+                let imageUrl;
+                if (containerIndex === 1) {
+                  imageUrl = image1;
+                } else if (containerIndex === 2) {
+                  imageUrl = image2;
+                } else if (containerIndex === 3) {
+                  imageUrl = image3;
+                }
+                return (
+                  <div key={index}>
+                    <AnimationCard url={imageUrl} description={description} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
     </div>
   );
 };

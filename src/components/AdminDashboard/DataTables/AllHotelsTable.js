@@ -1,24 +1,58 @@
 import React, { useEffect, useState } from "react";
-import baseURL from "../../apiConfig";
+import baseURL from "../../../apiConfig";
 import axios from "axios";
 
+import { useQuery } from "react-query";
+import DeleteHotelModal from "../../utils/Essentials/DeleteHotelModal";
+const fetchHotelsInfo = async () => {
+  const response = await axios.get(`${baseURL}/api/hotel/fetch`);
+  return response?.data;
+};
 const AllHotelsTable = () => {
   const [hotels, setHotels] = useState([]);
-  const fetchHotels = async () => {
-    const response = await axios.get(`${baseURL}/api/hotel/fetch`);
-    return response?.data;
-  };
+  const [showDeleteModal, setShowDeleteModal] = useState(false); // State to control modal visibility
+  const [hotelToDelete, setHotelToDelete] = useState(null);
+
+  const { data: hotelsInfo } = useQuery("hotels", fetchHotelsInfo, {
+    staleTime: 3600000,
+  });
   useEffect(() => {
-    const fetchData = async () => {
-      const fetchedHotels = await fetchHotels();
-      setHotels(fetchedHotels.hotels);
-    };
-    fetchData();
-  }, []);
+    if (hotelsInfo) {
+      setHotels(hotelsInfo.hotels);
+    }
+  }, [hotelsInfo]);
+  const handleDelete = (itemId) => {
+    // Set the hotel to be deleted and show the delete confirmation modal
+    setHotelToDelete(itemId);
+    setShowDeleteModal(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    try {
+      await axios.delete(`${baseURL}/api/hotel/delete/${hotelToDelete}`);
+
+      //  Update the local state to remove the deleted item
+      setHotels((prevHotels) =>
+        prevHotels.filter((item) => item.id !== hotelToDelete)
+      );
+
+      // // Close the delete confirmation modal
+      setShowDeleteModal(false);
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
+
+  const handleCancelDelete = () => {
+    // Clear the hotel to be deleted and close the delete confirmation modal
+    setHotelToDelete(null);
+    setShowDeleteModal(false);
+  };
+
   return (
     <div className="my-2 sm:my-8">
       {" "}
-      {hotels.length > 0 ? (
+      {hotels && hotels.length > 0 ? (
         <div className="relative overflow-x-auto">
           <p className="text-xl  sm:my-6 my-2 text-center sm:text-3xl text-defaultGreen font-euclidSemibold dark:text-orange-200">
             All Hotels
@@ -50,6 +84,9 @@ const AllHotelsTable = () => {
                 <th scope="col" className="px-6 py-3">
                   Postal Code
                 </th>
+                <th scope="col" className="px-6 py-3">
+                  Action
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -74,6 +111,14 @@ const AllHotelsTable = () => {
                     <td className="px-6 py-4">
                       {item?.postalCode == null ? <>N/A</> : item?.postalCode}
                     </td>
+                    <td className="px-6 py-4">
+                      {" "}
+                      <button
+                        onClick={() => handleDelete(item.id)}
+                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg ">
+                        Delete
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
@@ -84,6 +129,12 @@ const AllHotelsTable = () => {
         <p className="text-xl  sm:my-6 my-2 text-center sm:text-3xl text-defaultGreen font-euclidSemibold dark:text-orange-200">
           No Hotel Available
         </p>
+      )}
+      {showDeleteModal && (
+        <DeleteHotelModal
+          handleConfirmDelete={handleConfirmDelete}
+          handleCancelDelete={handleCancelDelete}
+        />
       )}
     </div>
   );
