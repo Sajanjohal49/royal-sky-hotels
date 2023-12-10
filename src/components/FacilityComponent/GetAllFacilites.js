@@ -14,7 +14,7 @@ const GetAllFacilites = () => {
   const [facilities, setFacilities] = useState([]);
   console.log(facilities);
   const [isLoading, stopLoading, LoadingComponent] = useLoading();
-  const { data: allFacilities } = useQuery(
+  const { data: allFacilities, isLoading: queryLoading } = useQuery(
     "allFacilities",
     fetchAllFacilities,
     {
@@ -25,9 +25,9 @@ const GetAllFacilites = () => {
   useEffect(() => {
     if (allFacilities) {
       setFacilities(allFacilities.facilities);
-    }
 
-    stopLoading();
+      stopLoading();
+    }
   }, [fetchAllFacilities, stopLoading]);
 
   return (

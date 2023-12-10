@@ -150,19 +150,19 @@ const NormalNav = () => {
             <NavLink
               to="/"
               activeclassname="bg-gray-700 text-white"
-              className="flex items-center justify-center px-4 py-2 text-base  font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
+              className="flex items-center justify-center px-4 py-2 text-base  font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-300 rounded-3xl hover:text-gray-900">
               Home
             </NavLink>
             <NavLink
               to="/gallery"
               activeclassname="bg-gray-700 text-white"
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
+              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-300rounded-3xl hover:text-gray-900">
               Gallery
             </NavLink>
             <NavLink
               to="/allHotels"
               activeclassname="bg-gray-700 text-white"
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
+              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:text-gray-300 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
               All Hotels
             </NavLink>
           </div>
@@ -170,13 +170,13 @@ const NormalNav = () => {
             <NavLink
               to="/login"
               activeclassname="bg-gray-700 text-white"
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
+              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-300 rounded-3xl hover:text-gray-900">
               Sign In
             </NavLink>
             <NavLink
               to="/customer/register"
               activeclassname="bg-gray-700 text-white"
-              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
+              className="flex items-center justify-center px-4 py-2 text-base font-medium cursor-pointer hover:bg-gray-200 dark:hover:text-gray-300 dark:hover:bg-gray-800 rounded-3xl hover:text-gray-900">
               Sign Up
             </NavLink>
           </div>

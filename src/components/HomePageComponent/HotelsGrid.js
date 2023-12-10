@@ -43,13 +43,14 @@ function HotelsGrid() {
     if (locationId == null) {
       if (allHotels) {
         setHotels(allHotels?.hotels);
+        stopLoading();
       }
     } else {
       if (locationBasedHotels) {
         setHotels(locationBasedHotels?.hotels);
+        stopLoading();
       }
     }
-    stopLoading();
   }, [locationId, allHotels, locationBasedHotels, stopLoading]);
 
   return (
