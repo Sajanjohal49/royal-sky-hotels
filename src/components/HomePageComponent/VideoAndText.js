@@ -22,7 +22,7 @@ const VideoAndText = () => {
           poster={videoPoster}
           onClick={(e) => e.preventDefault()}
           preload="auto"
-          disablePictureInPicture
+          playsInline
           muted></video>
       </div>
     </div>
